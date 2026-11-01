@@ -1,4 +1,4 @@
-// Faithward landing page. No trackers. The waitlist posts an email to an insert-only table.
+// Even Here landing page. No trackers. The waitlist posts an email to an insert-only table.
 const SUPABASE_URL = "https://pmjhctxeoudnytplumam.supabase.co";
 const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtamhjdHhlb3Vkbnl0cGx1bWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM0NjA4NDcsImV4cCI6MjEwOTAzNjg0N30.4C0kBhcfG7Mq6h-3CwZCPQQlOwBxUENsENnAdKdUWBk"; // public anon key; the table only allows inserts
 document.documentElement.classList.remove("no-js");
@@ -105,7 +105,7 @@ document.querySelectorAll("form[data-waitlist]").forEach((f) => {
         body: JSON.stringify({ email, source: f.dataset.waitlist }),
       });
       if (r.ok || r.status === 409) {
-        msg.textContent = r.status === 409 ? "You're already on the list. We'll be in touch." : "You're on the list. We'll email you when Faithward launches.";
+        msg.textContent = r.status === 409 ? "You're already on the list. We'll be in touch." : "You're on the list. We'll email you when Even Here launches.";
         msg.classList.add("ok"); input.value = "";
       } else throw new Error(String(r.status));
     } catch {

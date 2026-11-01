@@ -1,4 +1,4 @@
-// Faithward e-card viewer. Everything a card says lives in the link itself (after #),
+// Even Here e-card viewer. Everything a card says lives in the link itself (after #),
 // so nothing is stored on a server and the person who receives it needs no app or account.
 // Occasions, verses and gifts come from card-gifts.js, generated from the public-domain KJV.
 const OCCASIONS = window.FW_OCCASIONS || {};
@@ -33,13 +33,13 @@ $("to").textContent = `Dear ${to},`;
 $("msg").textContent = msg;
 if (showVerse) { $("verse").hidden = false; $("vtext").textContent = `“${verse.text}”`; $("vref").textContent = verse.ref; }
 $("sig").textContent = `With love, ${from}`;
-// Optional prayer. "fw" means Faithward's suggested words, unchanged; "own" means the sender wrote or edited it.
+// Optional prayer. "fw" means Even Here's suggested words, unchanged; "own" means the sender wrote or edited it.
 const prayer = clean(c.pr, 1200);
 if (prayer) {
   $("prayer").hidden = false;
   $("prText").textContent = prayer;
   $("prTitle").textContent = `A prayer for you, ${to}`;
-  $("prBy").textContent = c.pb === "fw" ? `Prayed by ${from}. Words written by Faithward.` : `Written and prayed by ${from}.`;
+  $("prBy").textContent = c.pb === "fw" ? `Prayed by ${from}. Words written by Even Here.` : `Written and prayed by ${from}.`;
 }
 const gift = document.getElementById("gift");
 if (gift) gift.querySelector("b").textContent = occ.gift;
@@ -102,7 +102,7 @@ $("keep").addEventListener("click", async () => {
     if (prayer) { x.fillStyle = "#8a6a12"; x.font = "700 24px Inter, sans-serif"; x.fillText("A PRAYER FOR YOU", W / 2, y + 30); x.fillStyle = "#14231d"; x.font = "400 30px Inter, sans-serif"; const lines = prayer.split("\n").join(" "); y = wrap(x, lines, W / 2, y + 76, 880, 42) + 10; }
     x.fillStyle = "#0F3B2E"; x.font = "italic 600 44px 'Playfair Display', Georgia, serif"; x.fillText(`With love, ${from}`, W / 2, y + 60);
     const FH = Math.max(1350, y + 170);
-    x.fillStyle = "#4d5c55"; x.font = "500 22px Inter, sans-serif"; x.fillText("Sent with Faithward", W / 2, FH - 40);
+    x.fillStyle = "#4d5c55"; x.font = "500 22px Inter, sans-serif"; x.fillText("Sent with Even Here", W / 2, FH - 40);
     const out = document.createElement("canvas"); out.width = W; out.height = FH; out.getContext("2d").drawImage(cv, 0, 0);
     const blob = await new Promise((r) => out.toBlob(r, "image/png"));
     const file = new File([blob], `card-from-${from.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}.png`, { type: "image/png" });
