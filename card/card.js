@@ -1,5 +1,6 @@
-// Even Here e-card viewer. Everything a card says lives in the link itself (after #),
-// so nothing is stored on a server and the person who receives it needs no app or account.
+// Even Here e-card viewer. A card arrives either packed in the link (after #) or, for short links,
+// fetched by its code in card.html and then unpacked the same way.
+// The person who receives it needs no app or account.
 // Occasions, verses and gifts come from card-gifts.js, generated from the public-domain KJV.
 const OCCASIONS = window.FW_OCCASIONS || {};
 
