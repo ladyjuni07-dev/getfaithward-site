@@ -80,3 +80,11 @@ img { display: block; max-width: 100%; height: auto; }
 .card .prayer h2 { margin: 0 0 8px; font: 700 13px var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--gold-ink); }
 .card .prayer p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink); white-space: pre-line; }
 .card .prayer .prayer-by { margin-top: 8px; font-size: 12px; font-weight: 600; color: var(--muted); }
+
+/* Shown only when the card link is missing or damaged. */
+.broken{max-width:22rem;margin:12vh auto 0;padding:28px 22px;text-align:center;background:#FFFDF7;border:1px solid #E4DCC4;border-radius:24px;color:#0F3B2E}
+.broken h1{font-family:"Playfair Display",Georgia,serif;font-size:1.6rem;line-height:1.2;margin:12px 0 8px}
+.broken p{font-size:16px;line-height:1.55;color:#33463E;margin:0 0 16px}
+.broken a{display:inline-block;padding:12px 18px;border-radius:12px;background:#0F3B2E;color:#F7F4EA;font-weight:600;text-decoration:none}
+.no-card .envelope,.no-card .open-btn,.no-card .after,.no-card .from-line{display:none !important}
+.broken img{display:block;margin:0 auto;border-radius:14px}

@@ -7,13 +7,22 @@ function readCard() {
   try {
     const raw = location.hash.slice(1);
     if (!raw) return null;
-    const json = decodeURIComponent(escape(atob(raw.replace(/-/g, "+").replace(/_/g, "/"))));
+    let b64 = raw.trim().replace(/-/g, "+").replace(/_/g, "/").replace(/[^A-Za-z0-9+/]/g, "");
+    while (b64.length % 4) b64 += "=";
+    const json = decodeURIComponent(escape(atob(b64)));
     return JSON.parse(json);
   } catch { return null; }
 }
 const clean = (s, n) => String(s ?? "").replace(/[<>]/g, "").slice(0, n).trim();
 
-const c = readCard() || { o: "grief", to: "Mom", from: "Grace", tone: "faith" };
+const card = readCard();
+if (!card) {
+  // Never show made-up names. Explain kindly and keep the page useful.
+  document.body.classList.add("no-card");
+  const box = document.getElementById("broken");
+  if (box) box.hidden = false;
+}
+const c = card || { o: "grief", to: "", from: "", tone: "faith" };
 const occ = OCCASIONS[c.o] || OCCASIONS.grief;
 // Which verse the sender picked (0-2). Old links have no index and use the first.
 const vi = Number.isInteger(c.vi) && occ.verses[c.vi] ? c.vi : 0;
