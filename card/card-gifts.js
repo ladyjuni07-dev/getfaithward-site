@@ -96,6 +96,30 @@ window.FW_OCCASIONS = {
    }
   ]
  },
+ "justbecause": {
+  "id": "justbecause",
+  "group": "everyday",
+  "label": "Just Because",
+  "title": "Just because",
+  "faith": "Hi {to}! No special reason. I just wanted you to know I thank God for you and I'm praying for you today.",
+  "gentle": "Hi {to}! No special reason. I was thinking of you and wanted to brighten your day.",
+  "prayer": "Lord, thank You for {to}. Surprise them with Your goodness today, and let them know they are loved, just because. Amen.",
+  "gift": "7 days of just because",
+  "verses": [
+   {
+    "text": "A friend loveth at all times, and a brother is born for adversity.",
+    "ref": "Proverbs 17:17 (KJV)"
+   },
+   {
+    "text": "The Lord thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing.",
+    "ref": "Zephaniah 3:17 (KJV)"
+   },
+   {
+    "text": "This is the day which the Lord hath made; we will rejoice and be glad in it.",
+    "ref": "Psalm 118:24 (KJV)"
+   }
+  ]
+ },
  "thanks": {
   "id": "thanks",
   "group": "everyday",
@@ -408,33 +432,81 @@ window.FW_OCCASIONS = {
    }
   ]
  },
- "christmas": {
-  "id": "christmas",
-  "group": "faith",
-  "label": "Christmas",
-  "title": "Merry Christmas",
-  "faith": "Merry Christmas, {to}! I'm praying you feel the peace and joy of Jesus this season.",
-  "gentle": "Merry Christmas, {to}! Wishing you peace, warmth and joy this season.",
-  "prayer": "Lord, as we celebrate the birth of Jesus, fill {to}'s home with peace, joy and the wonder of Your love. Amen.",
-  "gift": "7 days of Christmas peace",
+ "newyear": {
+  "id": "newyear",
+  "group": "holidays",
+  "label": "New Year",
+  "title": "Happy New Year",
+  "faith": "Happy New Year, {to}! I'm praying this year is full of God's faithfulness, fresh mercy and good surprises.",
+  "gentle": "Happy New Year, {to}! Wishing you a fresh start and a year full of good things.",
+  "prayer": "Lord, thank You for a new year. Go before {to} in every month ahead, and let Your mercy meet them fresh each morning. Amen.",
+  "gift": "7 days for a new year",
   "verses": [
    {
-    "text": "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
-    "ref": "Isaiah 9:6 (KJV)"
+    "text": "It is of the Lord’s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
+    "ref": "Lamentations 3:22-23 (KJV)"
    },
    {
-    "text": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
-    "ref": "Luke 2:10-11 (KJV)"
+    "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+    "ref": "Isaiah 43:19 (KJV)"
    },
    {
-    "text": "Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.",
-    "ref": "Matthew 1:23 (KJV)"
+    "text": "For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.",
+    "ref": "Jeremiah 29:11 (KJV)"
+   }
+  ]
+ },
+ "palmsunday": {
+  "id": "palmsunday",
+  "group": "holidays",
+  "label": "Palm Sunday",
+  "title": "Hosanna!",
+  "faith": "Happy Palm Sunday, {to}! Praying you welcome Jesus into every part of this week.",
+  "gentle": "Happy Palm Sunday, {to}! Wishing you a week full of hope and peace.",
+  "prayer": "Lord Jesus, You came humbly and You came for us. Ride into {to}'s heart this week and bring Your peace. Amen.",
+  "gift": "7 days of Holy Week",
+  "verses": [
+   {
+    "text": "And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.",
+    "ref": "Matthew 21:9 (KJV)"
+   },
+   {
+    "text": "Rejoice greatly, O daughter of Zion; shout, O daughter of Jerusalem: behold, thy King cometh unto thee: he is just, and having salvation; lowly, and riding upon an ass, and upon a colt the foal of an ass.",
+    "ref": "Zechariah 9:9 (KJV)"
+   },
+   {
+    "text": "Took branches of palm trees, and went forth to meet him, and cried, Hosanna: Blessed is the King of Israel that cometh in the name of the Lord.",
+    "ref": "John 12:13 (KJV)"
+   }
+  ]
+ },
+ "goodfriday": {
+  "id": "goodfriday",
+  "group": "holidays",
+  "label": "Good Friday",
+  "title": "Remembering the cross",
+  "faith": "Thinking of you this Good Friday, {to}. I'm praying you know how deeply Jesus loves you.",
+  "gentle": "Thinking of you this Good Friday, {to}. Wishing you a quiet, peaceful day.",
+  "prayer": "Lord Jesus, thank You for the cross. Let {to} feel the depth of Your love today, and the hope that Sunday is coming. Amen.",
+  "gift": "7 days at the cross",
+  "verses": [
+   {
+    "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+    "ref": "John 3:16 (KJV)"
+   },
+   {
+    "text": "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed.",
+    "ref": "Isaiah 53:5 (KJV)"
+   },
+   {
+    "text": "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
+    "ref": "Romans 5:8 (KJV)"
    }
   ]
  },
  "easter": {
   "id": "easter",
-  "group": "faith",
+  "group": "holidays",
   "label": "Easter",
   "title": "He is risen!",
   "faith": "Happy Easter, {to}! I'm celebrating the risen Jesus with you and praying His hope fills your heart.",
@@ -453,6 +525,174 @@ window.FW_OCCASIONS = {
    {
     "text": "But thanks be to God, which giveth us the victory through our Lord Jesus Christ.",
     "ref": "1 Corinthians 15:57 (KJV)"
+   }
+  ]
+ },
+ "ascension": {
+  "id": "ascension",
+  "group": "holidays",
+  "label": "Ascension Day",
+  "title": "He reigns, and He's coming back",
+  "faith": "Happy Ascension Day, {to}! Jesus is alive, He's praying for us, and He's coming back.",
+  "gentle": "Thinking of you today, {to}. Wishing you hope and peace.",
+  "prayer": "Lord Jesus, You reign in heaven and You pray for us. Let {to} rest in that today, and look forward to Your return. Amen.",
+  "gift": "7 days of looking up",
+  "verses": [
+   {
+    "text": "Which also said, Ye men of Galilee, why stand ye gazing up into heaven? this same Jesus, which is taken up from you into heaven, shall so come in like manner as ye have seen him go into heaven.",
+    "ref": "Acts 1:11 (KJV)"
+   },
+   {
+    "text": "In my Father’s house are many mansions: if it were not so, I would have told you. I go to prepare a place for you. And if I go and prepare a place for you, I will come again, and receive you unto myself; that where I am, there ye may be also.",
+    "ref": "John 14:2-3 (KJV)"
+   },
+   {
+    "text": "Wherefore he is able also to save them to the uttermost that come unto God by him, seeing he ever liveth to make intercession for them.",
+    "ref": "Hebrews 7:25 (KJV)"
+   }
+  ]
+ },
+ "pentecost": {
+  "id": "pentecost",
+  "group": "holidays",
+  "label": "Pentecost",
+  "title": "Happy Pentecost",
+  "faith": "Happy Pentecost, {to}! Praying the Holy Spirit fills you with fresh power, comfort and joy.",
+  "gentle": "Happy Pentecost, {to}! Wishing you fresh strength and joy.",
+  "prayer": "Holy Spirit, fill {to} again today. Comfort, guide and strengthen them, and let Your fruit grow in their life. Amen.",
+  "gift": "7 days with the Holy Spirit",
+  "verses": [
+   {
+    "text": "And they were all filled with the Holy Ghost, and began to speak with other tongues, as the Spirit gave them utterance.",
+    "ref": "Acts 2:4 (KJV)"
+   },
+   {
+    "text": "But ye shall receive power, after that the Holy Ghost is come upon you: and ye shall be witnesses unto me both in Jerusalem, and in all Judea, and in Samaria, and unto the uttermost part of the earth.",
+    "ref": "Acts 1:8 (KJV)"
+   },
+   {
+    "text": "But the Comforter, which is the Holy Ghost, whom the Father will send in my name, he shall teach you all things, and bring all things to your remembrance, whatsoever I have said unto you.",
+    "ref": "John 14:26 (KJV)"
+   }
+  ]
+ },
+ "mothersday": {
+  "id": "mothersday",
+  "group": "holidays",
+  "label": "Mother's Day",
+  "title": "Happy Mother's Day",
+  "faith": "Happy Mother's Day, {to}! I thank God for you and I'm praying He blesses you today.",
+  "gentle": "Happy Mother's Day, {to}! Thank you for all the love you give.",
+  "prayer": "Lord, thank You for {to}. Refresh her heart today, honor her love and care, and let her feel deeply loved. Amen.",
+  "gift": "7 days of blessing for mom",
+  "verses": [
+   {
+    "text": "Her children arise up, and call her blessed; her husband also, and he praiseth her.",
+    "ref": "Proverbs 31:28 (KJV)"
+   },
+   {
+    "text": "Strength and honour are her clothing; and she shall rejoice in time to come.",
+    "ref": "Proverbs 31:25 (KJV)"
+   },
+   {
+    "text": "As one whom his mother comforteth, so will I comfort you; and ye shall be comforted in Jerusalem.",
+    "ref": "Isaiah 66:13 (KJV)"
+   }
+  ]
+ },
+ "fathersday": {
+  "id": "fathersday",
+  "group": "holidays",
+  "label": "Father's Day",
+  "title": "Happy Father's Day",
+  "faith": "Happy Father's Day, {to}! I thank God for you and I'm praying He blesses you today.",
+  "gentle": "Happy Father's Day, {to}! Thank you for all you do.",
+  "prayer": "Lord, thank You for {to}. Give him strength, rest and joy today, and let him know how much he's loved. Amen.",
+  "gift": "7 days of blessing for dad",
+  "verses": [
+   {
+    "text": "The just man walketh in his integrity: his children are blessed after him.",
+    "ref": "Proverbs 20:7 (KJV)"
+   },
+   {
+    "text": "Like as a father pitieth his children, so the Lord pitieth them that fear him.",
+    "ref": "Psalm 103:13 (KJV)"
+   },
+   {
+    "text": "And if it seem evil unto you to serve the Lord, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell: but as for me and my house, we will serve the Lord.",
+    "ref": "Joshua 24:15 (KJV)"
+   }
+  ]
+ },
+ "thanksgiving": {
+  "id": "thanksgiving",
+  "group": "holidays",
+  "label": "Thanksgiving",
+  "title": "Happy Thanksgiving",
+  "faith": "Happy Thanksgiving, {to}! I'm thanking God for you and praying your table is full of joy.",
+  "gentle": "Happy Thanksgiving, {to}! I'm thankful for you.",
+  "prayer": "Lord, thank You for every good gift. Fill {to}'s heart and home with gratitude, rest and Your goodness this Thanksgiving. Amen.",
+  "gift": "7 days of giving thanks",
+  "verses": [
+   {
+    "text": "Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.",
+    "ref": "Psalm 100:4 (KJV)"
+   },
+   {
+    "text": "O give thanks unto the Lord, for he is good: for his mercy endureth for ever.",
+    "ref": "Psalm 107:1 (KJV)"
+   },
+   {
+    "text": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+    "ref": "1 Thessalonians 5:18 (KJV)"
+   }
+  ]
+ },
+ "advent": {
+  "id": "advent",
+  "group": "holidays",
+  "label": "Advent",
+  "title": "He is coming again",
+  "faith": "Happy Advent, {to}! As we wait for Christmas, I'm praying you're filled with hope, because Jesus came and He is coming again.",
+  "gentle": "Thinking of you this Advent season, {to}. Wishing you hope, peace and light.",
+  "prayer": "Lord Jesus, You came once as a baby and You will come again as King. Fill {to} with hope while we wait. Even so, come, Lord Jesus. Amen.",
+  "gift": "7 days of Advent hope",
+  "verses": [
+   {
+    "text": "He which testifieth these things saith, Surely I come quickly. Amen. Even so, come, Lord Jesus.",
+    "ref": "Revelation 22:20 (KJV)"
+   },
+   {
+    "text": "The people that walked in darkness have seen a great light: they that dwell in the land of the shadow of death, upon them hath the light shined.",
+    "ref": "Isaiah 9:2 (KJV)"
+   },
+   {
+    "text": "And if I go and prepare a place for you, I will come again, and receive you unto myself; that where I am, there ye may be also.",
+    "ref": "John 14:3 (KJV)"
+   }
+  ]
+ },
+ "christmas": {
+  "id": "christmas",
+  "group": "holidays",
+  "label": "Christmas",
+  "title": "Merry Christmas",
+  "faith": "Merry Christmas, {to}! I'm praying you feel the peace and joy of Jesus this season.",
+  "gentle": "Merry Christmas, {to}! Wishing you peace, warmth and joy this season.",
+  "prayer": "Lord, as we celebrate the birth of Jesus, fill {to}'s home with peace, joy and the wonder of Your love. Amen.",
+  "gift": "7 days of Christmas peace",
+  "verses": [
+   {
+    "text": "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
+    "ref": "Isaiah 9:6 (KJV)"
+   },
+   {
+    "text": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
+    "ref": "Luke 2:10-11 (KJV)"
+   },
+   {
+    "text": "Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.",
+    "ref": "Matthew 1:23 (KJV)"
    }
   ]
  }
@@ -604,6 +844,43 @@ window.FW_GIFTS = {
    "text": "Thou wilt shew me the path of life: in thy presence is fulness of joy; at thy right hand there are pleasures for evermore.",
    "ref": "Psalm 16:11 (KJV)",
    "thought": "Real joy is found close to Him."
+  }
+ ],
+ "justbecause": [
+  {
+   "text": "Grant thee according to thine own heart, and fulfil all thy counsel.",
+   "ref": "Psalm 20:4 (KJV)",
+   "thought": "A prayer for you: may God grant your heart's good desires."
+  },
+  {
+   "text": "The Lord thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing.",
+   "ref": "Zephaniah 3:17 (KJV)",
+   "thought": "God rejoices over you with singing."
+  },
+  {
+   "text": "A friend loveth at all times, and a brother is born for adversity.",
+   "ref": "Proverbs 17:17 (KJV)",
+   "thought": "A friend loves at all times, not only on special days."
+  },
+  {
+   "text": "This is the day which the Lord hath made; we will rejoice and be glad in it.",
+   "ref": "Psalm 118:24 (KJV)",
+   "thought": "This ordinary day is one the Lord has made."
+  },
+  {
+   "text": "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth.",
+   "ref": "3 John 1:2 (KJV)",
+   "thought": "A simple wish for you: be well, body and soul."
+  },
+  {
+   "text": "Ointment and perfume rejoice the heart: so doth the sweetness of a man’s friend by hearty counsel.",
+   "ref": "Proverbs 27:9 (KJV)",
+   "thought": "Good friends are like perfume to the heart."
+  },
+  {
+   "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+   "ref": "Numbers 6:24-26 (KJV)",
+   "thought": "The Lord bless thee, and keep thee."
   }
  ],
  "thanks": [
@@ -1087,41 +1364,115 @@ window.FW_GIFTS = {
    "thought": "Tell someone your story. It may be the hope they need."
   }
  ],
- "christmas": [
+ "newyear": [
   {
-   "text": "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
-   "ref": "Isaiah 9:6 (KJV)",
-   "thought": "The child in the manger is called the Prince of Peace."
+   "text": "It is of the Lord’s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
+   "ref": "Lamentations 3:22-23 (KJV)",
+   "thought": "His mercies are new every morning, including this one."
   },
   {
-   "text": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
-   "ref": "Luke 2:10-11 (KJV)",
-   "thought": "Good tidings of great joy, for all people, including you."
+   "text": "Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
+   "ref": "Isaiah 43:19 (KJV)",
+   "thought": "God is doing a new thing. Watch for it."
   },
   {
-   "text": "Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.",
-   "ref": "Matthew 1:23 (KJV)",
-   "thought": "Emmanuel means God with us. He came close."
+   "text": "For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.",
+   "ref": "Jeremiah 29:11 (KJV)",
+   "thought": "His thoughts toward you are peace, not evil."
   },
   {
-   "text": "And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
-   "ref": "John 1:14 (KJV)",
-   "thought": "God put on flesh and lived among us."
+   "text": "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.",
+   "ref": "Proverbs 3:5-6 (KJV)",
+   "thought": "You don't have to see the whole year. Trust Him with the next step."
   },
   {
-   "text": "Glory to God in the highest, and on earth peace, good will toward men.",
-   "ref": "Luke 2:14 (KJV)",
-   "thought": "Peace on earth starts with peace with God."
+   "text": "So teach us to number our days, that we may apply our hearts unto wisdom.",
+   "ref": "Psalm 90:12 (KJV)",
+   "thought": "Ask God to help you spend your days well."
   },
   {
-   "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
-   "ref": "John 3:16 (KJV)",
-   "thought": "Christmas is God's love, given."
+   "text": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+   "ref": "Philippians 3:13-14 (KJV)",
+   "thought": "Let last year stay behind you. Press on."
   },
   {
-   "text": "But when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law, To redeem them that were under the law, that we might receive the adoption of sons.",
-   "ref": "Galatians 4:4-5 (KJV)",
-   "thought": "Jesus came right on time, so you could be called His child."
+   "text": "Thou crownest the year with thy goodness; and thy paths drop fatness.",
+   "ref": "Psalm 65:11 (KJV)",
+   "thought": "He crowns the year with His goodness."
+  }
+ ],
+ "palmsunday": [
+  {
+   "text": "Rejoice greatly, O daughter of Zion; shout, O daughter of Jerusalem: behold, thy King cometh unto thee: he is just, and having salvation; lowly, and riding upon an ass, and upon a colt the foal of an ass.",
+   "ref": "Zechariah 9:9 (KJV)",
+   "thought": "Long before it happened, God promised a humble King."
+  },
+  {
+   "text": "And the multitudes that went before, and that followed, cried, saying, Hosanna to the Son of David: Blessed is he that cometh in the name of the Lord; Hosanna in the highest.",
+   "ref": "Matthew 21:9 (KJV)",
+   "thought": "Hosanna means save us, and He came to do just that."
+  },
+  {
+   "text": "Saying, Blessed be the King that cometh in the name of the Lord: peace in heaven, and glory in the highest.",
+   "ref": "Luke 19:38 (KJV)",
+   "thought": "Peace in heaven, and glory in the highest."
+  },
+  {
+   "text": "And he answered and said unto them, I tell you that, if these should hold their peace, the stones would immediately cry out.",
+   "ref": "Luke 19:40 (KJV)",
+   "thought": "If people stayed silent, even the stones would cry out."
+  },
+  {
+   "text": "Took branches of palm trees, and went forth to meet him, and cried, Hosanna: Blessed is the King of Israel that cometh in the name of the Lord.",
+   "ref": "John 12:13 (KJV)",
+   "thought": "They went out to meet Him. You can too."
+  },
+  {
+   "text": "Blessed be he that cometh in the name of the Lord: we have blessed you out of the house of the Lord.",
+   "ref": "Psalm 118:26 (KJV)",
+   "thought": "Blessed is He that comes in the name of the Lord."
+  },
+  {
+   "text": "That at the name of Jesus every knee should bow, of things in heaven, and things in earth, and things under the earth; And that every tongue should confess that Jesus Christ is Lord, to the glory of God the Father.",
+   "ref": "Philippians 2:10-11 (KJV)",
+   "thought": "One day every knee will bow to this King."
+  }
+ ],
+ "goodfriday": [
+  {
+   "text": "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed.",
+   "ref": "Isaiah 53:5 (KJV)",
+   "thought": "He was wounded for us. By His stripes we are healed."
+  },
+  {
+   "text": "All we like sheep have gone astray; we have turned every one to his own way; and the Lord hath laid on him the iniquity of us all.",
+   "ref": "Isaiah 53:6 (KJV)",
+   "thought": "We all wandered. He carried it all anyway."
+  },
+  {
+   "text": "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
+   "ref": "Romans 5:8 (KJV)",
+   "thought": "He didn't wait for us to be good enough."
+  },
+  {
+   "text": "When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost.",
+   "ref": "John 19:30 (KJV)",
+   "thought": "It is finished. Nothing is left for you to earn."
+  },
+  {
+   "text": "Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live unto righteousness: by whose stripes ye were healed.",
+   "ref": "1 Peter 2:24 (KJV)",
+   "thought": "He bore our sins so we could live."
+  },
+  {
+   "text": "For he hath made him to be sin for us, who knew no sin; that we might be made the righteousness of God in him.",
+   "ref": "2 Corinthians 5:21 (KJV)",
+   "thought": "He took our sin and gave us His righteousness."
+  },
+  {
+   "text": "Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
+   "ref": "Hebrews 12:2 (KJV)",
+   "thought": "For the joy set before Him, He endured the cross."
   }
  ],
  "easter": [
@@ -1159,6 +1510,265 @@ window.FW_GIFTS = {
    "text": "I am he that liveth, and was dead; and, behold, I am alive for evermore, Amen; and have the keys of hell and of death.",
    "ref": "Revelation 1:18 (KJV)",
    "thought": "He holds the keys. You can rest."
+  }
+ ],
+ "ascension": [
+  {
+   "text": "And he led them out as far as to Bethany, and he lifted up his hands, and blessed them. And it came to pass, while he blessed them, he was parted from them, and carried up into heaven.",
+   "ref": "Luke 24:50-51 (KJV)",
+   "thought": "His last act on earth was to bless them."
+  },
+  {
+   "text": "And when he had spoken these things, while they beheld, he was taken up; and a cloud received him out of their sight.",
+   "ref": "Acts 1:9 (KJV)",
+   "thought": "He was taken up, and a cloud received Him."
+  },
+  {
+   "text": "Which also said, Ye men of Galilee, why stand ye gazing up into heaven? this same Jesus, which is taken up from you into heaven, shall so come in like manner as ye have seen him go into heaven.",
+   "ref": "Acts 1:11 (KJV)",
+   "thought": "This same Jesus will come back the same way."
+  },
+  {
+   "text": "In my Father’s house are many mansions: if it were not so, I would have told you. I go to prepare a place for you. And if I go and prepare a place for you, I will come again, and receive you unto myself; that where I am, there ye may be also.",
+   "ref": "John 14:2-3 (KJV)",
+   "thought": "He went to prepare a place for you."
+  },
+  {
+   "text": "Seeing then that we have a great high priest, that is passed into the heavens, Jesus the Son of God, let us hold fast our profession.",
+   "ref": "Hebrews 4:14 (KJV)",
+   "thought": "We have a great High Priest in heaven. Hold fast."
+  },
+  {
+   "text": "Wherefore he is able also to save them to the uttermost that come unto God by him, seeing he ever liveth to make intercession for them.",
+   "ref": "Hebrews 7:25 (KJV)",
+   "thought": "Jesus lives to pray for you."
+  },
+  {
+   "text": "So then after the Lord had spoken unto them, he was received up into heaven, and sat on the right hand of God.",
+   "ref": "Mark 16:19 (KJV)",
+   "thought": "He sat down at the right hand of God. He reigns."
+  }
+ ],
+ "pentecost": [
+  {
+   "text": "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.",
+   "ref": "John 14:16-17 (KJV)",
+   "thought": "Jesus promised a Comforter who would stay with you forever."
+  },
+  {
+   "text": "But the Comforter, which is the Holy Ghost, whom the Father will send in my name, he shall teach you all things, and bring all things to your remembrance, whatsoever I have said unto you.",
+   "ref": "John 14:26 (KJV)",
+   "thought": "The Spirit teaches you and reminds you of what Jesus said."
+  },
+  {
+   "text": "But ye shall receive power, after that the Holy Ghost is come upon you: and ye shall be witnesses unto me both in Jerusalem, and in all Judea, and in Samaria, and unto the uttermost part of the earth.",
+   "ref": "Acts 1:8 (KJV)",
+   "thought": "You will receive power when the Holy Spirit comes."
+  },
+  {
+   "text": "And when the day of Pentecost was fully come, they were all with one accord in one place. And suddenly there came a sound from heaven as of a rushing mighty wind, and it filled all the house where they were sitting.",
+   "ref": "Acts 2:1-2 (KJV)",
+   "thought": "They were together, and heaven came down like a mighty wind."
+  },
+  {
+   "text": "And they were all filled with the Holy Ghost, and began to speak with other tongues, as the Spirit gave them utterance.",
+   "ref": "Acts 2:4 (KJV)",
+   "thought": "They were all filled with the Holy Ghost."
+  },
+  {
+   "text": "Likewise the Spirit also helpeth our infirmities: for we know not what we should pray for as we ought: but the Spirit itself maketh intercession for us with groanings which cannot be uttered.",
+   "ref": "Romans 8:26 (KJV)",
+   "thought": "When you don't know what to pray, the Spirit prays for you."
+  },
+  {
+   "text": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
+   "ref": "Galatians 5:22-23 (KJV)",
+   "thought": "Love, joy, peace: this is what the Spirit grows in you."
+  }
+ ],
+ "mothersday": [
+  {
+   "text": "Strength and honour are her clothing; and she shall rejoice in time to come.",
+   "ref": "Proverbs 31:25 (KJV)",
+   "thought": "Strength and honour are her clothing."
+  },
+  {
+   "text": "She openeth her mouth with wisdom; and in her tongue is the law of kindness.",
+   "ref": "Proverbs 31:26 (KJV)",
+   "thought": "Her words are wise and kind."
+  },
+  {
+   "text": "Her children arise up, and call her blessed; her husband also, and he praiseth her.",
+   "ref": "Proverbs 31:28 (KJV)",
+   "thought": "Her children rise up and call her blessed."
+  },
+  {
+   "text": "Favour is deceitful, and beauty is vain: but a woman that feareth the Lord, she shall be praised.",
+   "ref": "Proverbs 31:30 (KJV)",
+   "thought": "A woman who fears the Lord shall be praised."
+  },
+  {
+   "text": "As one whom his mother comforteth, so will I comfort you; and ye shall be comforted in Jerusalem.",
+   "ref": "Isaiah 66:13 (KJV)",
+   "thought": "God comforts us the way a mother comforts her child."
+  },
+  {
+   "text": "When I call to remembrance the unfeigned faith that is in thee, which dwelt first in thy grandmother Lois, and thy mother Eunice; and I am persuaded that in thee also.",
+   "ref": "2 Timothy 1:5 (KJV)",
+   "thought": "Faith can be passed down, one heart to the next."
+  },
+  {
+   "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+   "ref": "Numbers 6:24-26 (KJV)",
+   "thought": "The Lord bless thee, and keep thee."
+  }
+ ],
+ "fathersday": [
+  {
+   "text": "Like as a father pitieth his children, so the Lord pitieth them that fear him.",
+   "ref": "Psalm 103:13 (KJV)",
+   "thought": "God's tender love is like a father's love for his children."
+  },
+  {
+   "text": "The just man walketh in his integrity: his children are blessed after him.",
+   "ref": "Proverbs 20:7 (KJV)",
+   "thought": "A man who walks with integrity blesses his children."
+  },
+  {
+   "text": "And if it seem evil unto you to serve the Lord, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell: but as for me and my house, we will serve the Lord.",
+   "ref": "Joshua 24:15 (KJV)",
+   "thought": "As for me and my house, we will serve the Lord."
+  },
+  {
+   "text": "Watch ye, stand fast in the faith, quit you like men, be strong.",
+   "ref": "1 Corinthians 16:13 (KJV)",
+   "thought": "Stand fast in the faith. Be strong."
+  },
+  {
+   "text": "If ye then, being evil, know how to give good gifts unto your children, how much more shall your Father which is in heaven give good things to them that ask him?",
+   "ref": "Matthew 7:11 (KJV)",
+   "thought": "If earthly fathers give good gifts, how much more our Father in heaven."
+  },
+  {
+   "text": "Behold, what manner of love the Father hath bestowed upon us, that we should be called the sons of God: therefore the world knoweth us not, because it knew him not.",
+   "ref": "1 John 3:1 (KJV)",
+   "thought": "Our Father in heaven calls us His own children."
+  },
+  {
+   "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+   "ref": "Numbers 6:24-26 (KJV)",
+   "thought": "The Lord bless thee, and keep thee."
+  }
+ ],
+ "thanksgiving": [
+  {
+   "text": "Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.",
+   "ref": "Psalm 100:4 (KJV)",
+   "thought": "Enter His gates with thanksgiving."
+  },
+  {
+   "text": "O give thanks unto the Lord, for he is good: for his mercy endureth for ever.",
+   "ref": "Psalm 107:1 (KJV)",
+   "thought": "Give thanks, for He is good. His mercy lasts forever."
+  },
+  {
+   "text": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
+   "ref": "Psalm 136:1 (KJV)",
+   "thought": "His mercy endures for ever. Say it again."
+  },
+  {
+   "text": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+   "ref": "1 Thessalonians 5:18 (KJV)",
+   "thought": "In everything, give thanks."
+  },
+  {
+   "text": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.",
+   "ref": "Philippians 4:6 (KJV)",
+   "thought": "Bring every worry to God, with thanksgiving."
+  },
+  {
+   "text": "And whatsoever ye do in word or deed, do all in the name of the Lord Jesus, giving thanks to God and the Father by him.",
+   "ref": "Colossians 3:17 (KJV)",
+   "thought": "Whatever you do, do it with thanks to God."
+  },
+  {
+   "text": "Every good gift and every perfect gift is from above, and cometh down from the Father of lights, with whom is no variableness, neither shadow of turning.",
+   "ref": "James 1:17 (KJV)",
+   "thought": "Every good gift comes from above."
+  }
+ ],
+ "advent": [
+  {
+   "text": "The people that walked in darkness have seen a great light: they that dwell in the land of the shadow of death, upon them hath the light shined.",
+   "ref": "Isaiah 9:2 (KJV)",
+   "thought": "People in darkness have seen a great light."
+  },
+  {
+   "text": "But thou, Beth–lehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall he come forth unto me that is to be ruler in Israel; whose goings forth have been from of old, from everlasting.",
+   "ref": "Micah 5:2 (KJV)",
+   "thought": "God named the little town where His Son would be born."
+  },
+  {
+   "text": "Through the tender mercy of our God; whereby the dayspring from on high hath visited us, To give light to them that sit in darkness and in the shadow of death, to guide our feet into the way of peace.",
+   "ref": "Luke 1:78-79 (KJV)",
+   "thought": "The dayspring from on high has visited us."
+  },
+  {
+   "text": "So Christ was once offered to bear the sins of many; and unto them that look for him shall he appear the second time without sin unto salvation.",
+   "ref": "Hebrews 9:28 (KJV)",
+   "thought": "He came once to carry our sins. He will appear a second time."
+  },
+  {
+   "text": "And if I go and prepare a place for you, I will come again, and receive you unto myself; that where I am, there ye may be also.",
+   "ref": "John 14:3 (KJV)",
+   "thought": "I will come again, Jesus promised."
+  },
+  {
+   "text": "I Jesus have sent mine angel to testify unto you these things in the churches. I am the root and the offspring of David, and the bright and morning star.",
+   "ref": "Revelation 22:16 (KJV)",
+   "thought": "Jesus is the bright and morning star."
+  },
+  {
+   "text": "He which testifieth these things saith, Surely I come quickly. Amen. Even so, come, Lord Jesus.",
+   "ref": "Revelation 22:20 (KJV)",
+   "thought": "Surely I come quickly. Even so, come, Lord Jesus."
+  }
+ ],
+ "christmas": [
+  {
+   "text": "For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.",
+   "ref": "Isaiah 9:6 (KJV)",
+   "thought": "The child in the manger is called the Prince of Peace."
+  },
+  {
+   "text": "And the angel said unto them, Fear not: for, behold, I bring you good tidings of great joy, which shall be to all people. For unto you is born this day in the city of David a Saviour, which is Christ the Lord.",
+   "ref": "Luke 2:10-11 (KJV)",
+   "thought": "Good tidings of great joy, for all people, including you."
+  },
+  {
+   "text": "Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.",
+   "ref": "Matthew 1:23 (KJV)",
+   "thought": "Emmanuel means God with us. He came close."
+  },
+  {
+   "text": "And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
+   "ref": "John 1:14 (KJV)",
+   "thought": "God put on flesh and lived among us."
+  },
+  {
+   "text": "Glory to God in the highest, and on earth peace, good will toward men.",
+   "ref": "Luke 2:14 (KJV)",
+   "thought": "Peace on earth starts with peace with God."
+  },
+  {
+   "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+   "ref": "John 3:16 (KJV)",
+   "thought": "Christmas is God's love, given."
+  },
+  {
+   "text": "But when the fulness of the time was come, God sent forth his Son, made of a woman, made under the law, To redeem them that were under the law, that we might receive the adoption of sons.",
+   "ref": "Galatians 4:4-5 (KJV)",
+   "thought": "Jesus came right on time, so you could be called His child."
   }
  ]
 };
