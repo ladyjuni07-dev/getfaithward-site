@@ -58,7 +58,8 @@ img { display: block; max-width: 100%; height: auto; }
 .gift-tag { display: inline-block; font: 700 11px/1 Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #6B5310; background: rgba(212,175,55,.25); padding: 6px 9px; border-radius: 99px; }
 .gift b { display: block; font: 700 1.25rem/1.25 var(--serif); margin: 10px 0 6px; }
 .gift p { margin: 0 0 12px; color: #2C4A3E; font-size: 15px; line-height: 1.45; }
-.gift-btn { width: 100%; border: 0; border-radius: 12px; background: var(--forest); color: #fff; font: 600 16px Inter, sans-serif; padding: 13px; }
+.gift-btn { width: 100%; border: 2px solid var(--forest); border-radius: 12px; background: transparent; color: var(--forest); font: 600 16px Inter, sans-serif; padding: 11px; cursor: pointer; }
+.reader-close { display: block; margin: 12px auto 0; border: 0; background: none; color: #2C4A3E; font: 600 14px Inter, sans-serif; text-decoration: underline; cursor: pointer; padding: 6px; }
 .keep-btn { width: 100%; border: 2px solid rgba(255,255,255,.7); background: transparent; color: #fff; border-radius: 12px; font: 600 16px Inter, sans-serif; padding: 12px; margin: 0 0 14px; }
 .stage:not(.opened) .card { visibility: hidden; }
 .opened .from-line { opacity: 0; transition: opacity .3s ease; }
@@ -88,3 +89,12 @@ img { display: block; max-width: 100%; height: auto; }
 .broken a{display:inline-block;padding:12px 18px;border-radius:12px;background:#0F3B2E;color:#F7F4EA;font-weight:600;text-decoration:none}
 .no-card .envelope,.no-card .open-btn,.no-card .after,.no-card .from-line{display:none !important}
 .broken img{display:block;margin:0 auto;border-radius:14px}
+
+/* Butterflies when the envelope opens, matched to the occasion. Drawn in code, purely decorative. */
+.flutter-layer { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+.bfly { position: absolute; left: 0; top: 0; width: 34px; height: 30px; will-change: transform, opacity; }
+.bfly .wl, .bfly .wr { transform-box: fill-box; animation: flap var(--flap, .32s) ease-in-out infinite alternate; }
+.bfly .wl { transform-origin: right center; }
+.bfly .wr { transform-origin: left center; }
+@keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(.25); } }
+@media (prefers-reduced-motion: reduce) { .flutter-layer { display: none; } }

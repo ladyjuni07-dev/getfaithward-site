@@ -52,19 +52,56 @@ if (prayer) {
   $("prBy").textContent = c.pb === "fw" ? `Prayed by ${from}. Words written by Even Here.` : `Written and prayed by ${from}.`;
 }
 const gift = document.getElementById("gift");
-if (gift) gift.querySelector("b").textContent = occ.gift;
+// The sender can leave the readings off (g: 0). Older cards always had them.
+if (gift) { if (c.g === 0) gift.hidden = true; else gift.querySelector("b").textContent = occ.gift; }
+
+// Butterflies matched to the occasion: a joyful flutter for celebrations, a few slow ones for
+// comfort and quieter holy days, and none on Good Friday.
+const JOYFUL = ["justbecause", "thanks", "birthday", "congrats", "graduation", "marriage", "baby", "baptism", "newbeliever", "answered", "newyear", "easter", "mothersday", "fathersday", "thanksgiving", "christmas"];
+const NONE = ["goodfriday"];
+const WING = ["#D4AF37", "#B8D0B0", "#F7F4EA", "#E9C96A", "#8FB394"];
+function butterfly(color) {
+  return `<svg class="bfly" viewBox="0 0 34 30" aria-hidden="true"><g class="wl"><path d="M17 15 C10 1, 1 3, 3 11 C4 16, 11 17, 17 15 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/><path d="M17 16 C11 18, 5 22, 8 27 C11 30, 16 23, 17 16 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/></g><g class="wr"><path d="M17 15 C24 1, 33 3, 31 11 C30 16, 23 17, 17 15 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/><path d="M17 16 C23 18, 29 22, 26 27 C23 30, 18 23, 17 16 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/></g><rect x="16" y="9" width="2" height="15" rx="1" fill="#0F3B2E"/></svg>`;
+}
+function flutter() {
+  if (NONE.includes(occ.id)) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const joyful = JOYFUL.includes(occ.id);
+  const count = joyful ? 12 : 4;
+  const env = document.querySelector(".envelope").getBoundingClientRect();
+  const layer = document.createElement("div"); layer.className = "flutter-layer"; document.body.appendChild(layer);
+  for (let i = 0; i < count; i++) {
+    const wrap = document.createElement("div");
+    wrap.innerHTML = butterfly(WING[i % WING.length]);
+    const el = wrap.firstChild; layer.appendChild(el);
+    const scale = joyful ? 0.75 + Math.random() * 0.6 : 0.9 + Math.random() * 0.3;
+    el.style.setProperty("--flap", `${joyful ? 0.18 + Math.random() * 0.12 : 0.38 + Math.random() * 0.12}s`);
+    const x0 = env.left + env.width * (0.3 + Math.random() * 0.4), y0 = env.top + env.height * 0.35;
+    const dx = (Math.random() - 0.5) * (joyful ? 360 : 220), dy = -(joyful ? 320 + Math.random() * 320 : 260 + Math.random() * 160);
+    const tilt = (Math.random() - 0.5) * 40, dur = joyful ? 2200 + Math.random() * 900 : 3200 + Math.random() * 600;
+    const sway = (Math.random() - 0.5) * 80;
+    el.animate([
+      { transform: `translate(${x0}px, ${y0}px) scale(${scale * 0.4}) rotate(0deg)`, opacity: 0 },
+      { transform: `translate(${x0 + dx * 0.3 + sway}px, ${y0 + dy * 0.3}px) scale(${scale}) rotate(${tilt}deg)`, opacity: 1, offset: 0.25 },
+      { transform: `translate(${x0 + dx * 0.7 - sway}px, ${y0 + dy * 0.7}px) scale(${scale}) rotate(${-tilt / 2}deg)`, opacity: 1, offset: 0.7 },
+      { transform: `translate(${x0 + dx}px, ${y0 + dy}px) scale(${scale * 0.9}) rotate(${tilt / 2}deg)`, opacity: 0 },
+    ], { duration: dur, delay: i * (joyful ? 70 : 260), easing: "ease-out", fill: "both" });
+  }
+  setTimeout(() => layer.remove(), 5200);
+}
 
 const stage = $("stage");
 function open() {
   if (stage.classList.contains("opened")) return;
   stage.classList.add("opened");
+  setTimeout(flutter, 350);
   setTimeout(() => { stage.classList.add("revealed"); window.scrollTo({ top: 0, behavior: "smooth" }); }, 1500);
 }
 $("open").addEventListener("click", open);
 $("openBtn").addEventListener("click", open);
 if (new URLSearchParams(location.search).has("open")) { stage.classList.add("opened", "revealed"); }
 
-// The gift: seven short readings. All days are open; nothing is tracked or sent anywhere.
+// Optional readings: seven short ones. All days are open; nothing is tracked or sent anywhere.
 const days = (window.FW_GIFTS || {})[c.o] || (window.FW_GIFTS || {}).grief || [];
 let day = 0;
 function showDay(n) {
@@ -80,6 +117,10 @@ function showDay(n) {
 $("giftStart").addEventListener("click", () => {
   if (!days.length) return;
   $("giftStart").hidden = true; $("giftNote").hidden = true; $("reader").hidden = false; showDay(0);
+});
+$("rClose").addEventListener("click", () => {
+  $("reader").hidden = true; $("giftStart").hidden = false; $("giftNote").hidden = false;
+  $("giftStart").textContent = "Open the readings again";
 });
 $("rPrev").addEventListener("click", () => showDay(day - 1));
 $("rNext").addEventListener("click", () => showDay(day === days.length - 1 ? 0 : day + 1));
