@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="no-js"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reset your password | Even Here</title><meta name="description" content="Choose a new password for Even Here." />
+<meta name="theme-color" content="#0F3B2E" />
+<meta property="og:title" content="Reset your password | Even Here" /><meta property="og:description" content="Choose a new password for Even Here." /><meta property="og:image" content="assets/logo-lockup.png" />
+<link rel="icon" href="assets/favicon.png" /><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head><body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Even Here home"><img src="assets/logo.png" alt="" width="36" height="36" />Even Here</a>
+  <nav aria-label="Main"><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#healing">Healing</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#faq">FAQ</a></li></ul></nav>
+  <a class="btn gold" href="index.html#wl-hero">Join waitlist</a>
+</div></header>
+<main id="main" class="doc"><div class="wrap" style="text-align:center;max-width:460px">
+<img src="assets/lamb-comfort.png" alt="Selah the lamb" width="140" height="140" style="margin:0 auto" />
+<div id="form" hidden>
+<h1 style="margin-top:12px">Choose a new password</h1>
+<form id="rf" style="text-align:left;margin-top:16px" novalidate>
+<label for="pw1" style="font-weight:700">New password</label>
+<input id="pw1" type="password" autocomplete="new-password" style="display:block;width:100%;height:48px;margin:6px 0 4px;padding:0 14px;border:1.5px solid #6B8F71;border-radius:12px;font-size:16px;background:#fff" />
+<p style="margin:0 0 14px;font-size:14px;color:#4A5A50">At least 6 characters.</p>
+<label for="pw2" style="font-weight:700">Type it again</label>
+<input id="pw2" type="password" autocomplete="new-password" style="display:block;width:100%;height:48px;margin:6px 0 14px;padding:0 14px;border:1.5px solid #6B8F71;border-radius:12px;font-size:16px;background:#fff" />
+<p id="msg" role="alert" style="color:#9B2C20;font-weight:600;min-height:1.2em;margin:0 0 10px"></p>
+<button class="btn gold" type="submit" id="go" style="width:100%">Save new password</button>
+</form>
+</div>
+<div id="done" hidden>
+<h1 style="margin-top:12px">Your password is updated.</h1>
+<p class="intro">Go back to the Even Here app on your iPhone and sign in with your new password.</p>
+</div>
+<div id="bad" hidden>
+<h1 style="margin-top:12px">That link didn't work.</h1>
+<p class="intro">Reset links expire after a while and can only be used once. Open Even Here, tap Sign in, then Forgot password? to get a new link.</p>
+</div>
+</div></main>
+<script>
+(function () {
+  var URL_ = "https://pmjhctxeoudnytplumam.supabase.co", KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtamhjdHhlb3Vkbnl0cGx1bWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM0NjA4NDcsImV4cCI6MjEwOTAzNjg0N30.4C0kBhcfG7Mq6h-3CwZCPQQlOwBxUENsENnAdKdUWBk";
+  var h = new URLSearchParams(location.hash.slice(1)), q = new URLSearchParams(location.search);
+  var token = h.get("access_token"), type = h.get("type");
+  if (location.hash || location.search) history.replaceState(null, "", location.pathname);
+  var show = function (id) { ["form", "done", "bad"].forEach(function (x) { document.getElementById(x).hidden = x !== id; }); };
+  if (!token || type !== "recovery" || h.get("error") || q.get("error")) return show("bad");
+  show("form");
+  document.getElementById("rf").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var a = document.getElementById("pw1").value, b = document.getElementById("pw2").value, m = document.getElementById("msg"), go = document.getElementById("go");
+    if (a.length < 6) { m.textContent = "Use at least 6 characters."; return; }
+    if (a !== b) { m.textContent = "Those two passwords don't match."; return; }
+    m.textContent = ""; go.disabled = true; go.textContent = "One moment...";
+    fetch(URL_ + "/auth/v1/user", { method: "PUT", headers: { apikey: KEY, Authorization: "Bearer " + token, "Content-Type": "application/json" }, body: JSON.stringify({ password: a }) })
+      .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (r) {
+        if (r.ok) {
+          fetch(URL_ + "/auth/v1/logout?scope=local", { method: "POST", headers: { apikey: KEY, Authorization: "Bearer " + token } }).catch(function () {});
+          token = null; show("done");
+        } else {
+          var t = (r.j && (r.j.msg || r.j.message || r.j.error_description)) || "";
+          if (/different from the old/i.test(t)) m.textContent = "Please choose a password you haven't used before.";
+          else if (/expired|invalid|jwt/i.test(t)) return show("bad");
+          else m.textContent = "Something went wrong. Please try again.";
+          go.disabled = false; go.textContent = "Save new password";
+        }
+      })
+      .catch(function () { m.textContent = "Couldn't connect. Check your internet and try again."; go.disabled = false; go.textContent = "Save new password"; });
+  });
+})();
+</script>
+<footer><div class="wrap">
+  <div><a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="36" height="36" />Even Here</a>
+  <p style="margin-top:14px;max-width:34ch">Every Step, Closer to Christ. A Bible and devotional companion for evangelical and Protestant believers.</p></div>
+  <div><h4>Even Here</h4><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#healing">Healing from Church Hurt</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+  <div><h4>Help</h4><ul><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li><li><a href="mailto:support@getevenhere.com">support@getevenhere.com</a></li></ul></div>
+  <p class="legal">In crisis? Call or text 988 (U.S.) or call 911. Even Here is not a substitute for professional care. Bible text: King James Version and World English Bible (public domain). © 2026 Even Here.</p>
+</div></footer>
+<script src="main.js" defer></script>
+</body></html>
