@@ -20,11 +20,12 @@
 <div id="form" hidden>
 <h1 style="margin-top:12px">Choose a new password</h1>
 <form id="rf" style="text-align:left;margin-top:16px" novalidate>
-<label for="pw1" style="font-weight:700">New password</label>
-<input id="pw1" type="password" autocomplete="new-password" style="display:block;width:100%;height:48px;margin:6px 0 4px;padding:0 14px;border:1.5px solid #6B8F71;border-radius:12px;font-size:16px;background:#fff" />
+<div style="display:flex;justify-content:space-between;align-items:center"><label for="pw1" style="font-weight:700">New password</label>
+<button type="button" id="eye" aria-pressed="false" style="background:none;border:0;color:#0F3B2E;font-weight:700;font-size:15px;text-decoration:underline;padding:8px 4px;cursor:pointer">Show passwords</button></div>
+<input id="pw1" type="password" autocomplete="new-password" autocapitalize="none" spellcheck="false" style="display:block;width:100%;height:48px;margin:6px 0 4px;padding:0 14px;border:1.5px solid #6B8F71;border-radius:12px;font-size:16px;background:#fff" />
 <p style="margin:0 0 14px;font-size:14px;color:#4A5A50">At least 6 characters.</p>
 <label for="pw2" style="font-weight:700">Type it again</label>
-<input id="pw2" type="password" autocomplete="new-password" style="display:block;width:100%;height:48px;margin:6px 0 14px;padding:0 14px;border:1.5px solid #6B8F71;border-radius:12px;font-size:16px;background:#fff" />
+<input id="pw2" type="password" autocomplete="new-password" autocapitalize="none" spellcheck="false" style="display:block;width:100%;height:48px;margin:6px 0 14px;padding:0 14px;border:1.5px solid #6B8F71;border-radius:12px;font-size:16px;background:#fff" />
 <p id="msg" role="alert" style="color:#9B2C20;font-weight:600;min-height:1.2em;margin:0 0 10px"></p>
 <button class="btn gold" type="submit" id="go" style="width:100%">Save new password</button>
 </form>
@@ -47,6 +48,11 @@
   var show = function (id) { ["form", "done", "bad"].forEach(function (x) { document.getElementById(x).hidden = x !== id; }); };
   if (!token || type !== "recovery" || h.get("error") || q.get("error")) return show("bad");
   show("form");
+  document.getElementById("eye").addEventListener("click", function () {
+    var on = this.getAttribute("aria-pressed") !== "true";
+    this.setAttribute("aria-pressed", on ? "true" : "false"); this.textContent = on ? "Hide passwords" : "Show passwords";
+    ["pw1", "pw2"].forEach(function (x) { document.getElementById(x).type = on ? "text" : "password"; });
+  });
   document.getElementById("rf").addEventListener("submit", function (e) {
     e.preventDefault();
     var a = document.getElementById("pw1").value, b = document.getElementById("pw2").value, m = document.getElementById("msg"), go = document.getElementById("go");
