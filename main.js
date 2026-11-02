@@ -116,3 +116,11 @@ document.querySelectorAll("form[data-waitlist]").forEach((f) => {
     }
   });
 });
+
+// Videos: big play button, then normal controls; one plays at a time
+document.querySelectorAll('.vids .vframe').forEach(f => {
+  const v = f.querySelector('video'), b = f.querySelector('.vplay');
+  b.addEventListener('click', () => { v.controls = true; f.classList.add('playing'); v.play(); });
+  v.addEventListener('play', () => { f.classList.add('playing'); v.controls = true;
+    document.querySelectorAll('.vids video').forEach(o => { if (o !== v) o.pause(); }); });
+});
