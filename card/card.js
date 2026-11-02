@@ -63,7 +63,53 @@ const WING = ["#D4AF37", "#B8D0B0", "#F7F4EA", "#E9C96A", "#8FB394"];
 function butterfly(color) {
   return `<svg class="bfly" viewBox="0 0 34 30" aria-hidden="true"><g class="wl"><path d="M17 15 C10 1, 1 3, 3 11 C4 16, 11 17, 17 15 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/><path d="M17 16 C11 18, 5 22, 8 27 C11 30, 16 23, 17 16 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/></g><g class="wr"><path d="M17 15 C24 1, 33 3, 31 11 C30 16, 23 17, 17 15 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/><path d="M17 16 C23 18, 29 22, 26 27 C23 30, 18 23, 17 16 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/></g><rect x="16" y="9" width="2" height="15" rx="1" fill="#0F3B2E"/></svg>`;
 }
-function flutter() {
+// Wing sounds: soft, papery flaps made in the browser (no audio file). Each butterfly flaps at the
+// same speed its wings move on screen, drifting left or right with it, and fades as it flies off.
+// Plays only after the person taps to open the card, and only when butterflies appear.
+let audio = null;
+function wingAudio() {
+  try {
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    if (!audio) audio = new AC();
+    if (audio.state === "suspended") audio.resume();
+    return audio;
+  } catch { return null; }
+}
+let noiseBuf = null;
+function noise(ctx) {
+  if (noiseBuf) return noiseBuf;
+  noiseBuf = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
+  const d = noiseBuf.getChannelData(0);
+  let last = 0;
+  for (let i = 0; i < d.length; i++) { last = 0.6 * last + 0.4 * (Math.random() * 2 - 1); d[i] = last; }
+  return noiseBuf;
+}
+function wingSound(ctx, { start, dur, flap, pan, loud }) {
+  const out = ctx.createGain(); out.gain.value = 0;
+  const p = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+  if (p) { p.pan.setValueAtTime(pan * 0.3, start); p.pan.linearRampToValueAtTime(pan, start + dur); p.connect(ctx.destination); out.connect(p); }
+  else out.connect(ctx.destination);
+  out.gain.setValueAtTime(0, start);
+  out.gain.linearRampToValueAtTime(loud, start + 0.12);
+  out.gain.setValueAtTime(loud, start + dur * 0.45);
+  out.gain.linearRampToValueAtTime(0, start + dur);
+  const half = flap / 2;
+  for (let t = start; t < start + dur; t += half * (0.9 + Math.random() * 0.2)) {
+    const down = Math.round((t - start) / half) % 2 === 0; // downstroke is fuller, upstroke lighter
+    const src = ctx.createBufferSource(); src.buffer = noise(ctx);
+    const bp = ctx.createBiquadFilter(); bp.type = "bandpass";
+    bp.frequency.value = (down ? 900 : 1500) + Math.random() * 500; bp.Q.value = 0.9;
+    const g = ctx.createGain(); const len = Math.min(0.09, half * 0.8);
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(down ? 1 : 0.45, t + 0.006);
+    g.gain.exponentialRampToValueAtTime(0.001, t + len);
+    src.connect(bp); bp.connect(g); g.connect(out);
+    src.start(t, Math.random() * 0.8, len + 0.02);
+  }
+}
+
+function flutter(ctx) {
   if (NONE.includes(occ.id)) return;
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const joyful = JOYFUL.includes(occ.id);
@@ -86,6 +132,13 @@ function flutter() {
       { transform: `translate(${x0 + dx * 0.7 - sway}px, ${y0 + dy * 0.7}px) scale(${scale}) rotate(${-tilt / 2}deg)`, opacity: 1, offset: 0.7 },
       { transform: `translate(${x0 + dx}px, ${y0 + dy}px) scale(${scale * 0.9}) rotate(${tilt / 2}deg)`, opacity: 0 },
     ], { duration: dur, delay: i * (joyful ? 70 : 260), easing: "ease-out", fill: "both" });
+    if (ctx) {
+      const flapS = parseFloat(el.style.getPropertyValue("--flap")) * 2; // one full wingbeat
+      wingSound(ctx, {
+        start: ctx.currentTime + 0.05 + i * (joyful ? 0.07 : 0.26), dur: dur / 1000 * 0.8, flap: flapS,
+        pan: Math.max(-1, Math.min(1, dx / 200)), loud: joyful ? 0.45 : 0.8,
+      });
+    }
   }
   setTimeout(() => layer.remove(), 5200);
 }
@@ -94,7 +147,8 @@ const stage = $("stage");
 function open() {
   if (stage.classList.contains("opened")) return;
   stage.classList.add("opened");
-  setTimeout(flutter, 350);
+  const ctx = NONE.includes(occ.id) ? null : wingAudio(); // started inside the tap so phones allow it
+  setTimeout(() => flutter(ctx), 350);
   setTimeout(() => { stage.classList.add("revealed"); window.scrollTo({ top: 0, behavior: "smooth" }); }, 1500);
 }
 $("open").addEventListener("click", open);

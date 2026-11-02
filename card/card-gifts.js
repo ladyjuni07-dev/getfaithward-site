@@ -21,6 +21,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth.",
     "ref": "3 John 1:2 (KJV)"
+   },
+   {
+    "text": "Casting all your care upon him; for he careth for you.",
+    "ref": "1 Peter 5:7 (KJV)"
+   },
+   {
+    "text": "Cast thy burden upon the Lord, and he shall sustain thee: he shall never suffer the righteous to be moved.",
+    "ref": "Psalm 55:22 (KJV)"
+   },
+   {
+    "text": "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.",
+    "ref": "Isaiah 26:3 (KJV)"
+   },
+   {
+    "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+    "ref": "Matthew 11:28 (KJV)"
+   },
+   {
+    "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+    "ref": "Numbers 6:24-26 (KJV)"
+   },
+   {
+    "text": "God is our refuge and strength, a very present help in trouble.",
+    "ref": "Psalm 46:1 (KJV)"
+   },
+   {
+    "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid.",
+    "ref": "John 14:27 (KJV)"
+   },
+   {
+    "text": "Now the Lord of peace himself give you peace always by all means. The Lord be with you all.",
+    "ref": "2 Thessalonians 3:16 (KJV)"
+   },
+   {
+    "text": "The Lord shall preserve thee from all evil: he shall preserve thy soul.",
+    "ref": "Psalm 121:7 (KJV)"
    }
   ]
  },
@@ -45,6 +81,42 @@ window.FW_OCCASIONS = {
    {
     "text": "It is of the Lord’s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
     "ref": "Lamentations 3:22-23 (KJV)"
+   },
+   {
+    "text": "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
+    "ref": "Isaiah 40:31 (KJV)"
+   },
+   {
+    "text": "Let us hold fast the profession of our faith without wavering; (for he is faithful that promised;)",
+    "ref": "Hebrews 10:23 (KJV)"
+   },
+   {
+    "text": "Wait on the Lord: be of good courage, and he shall strengthen thine heart: wait, I say, on the Lord.",
+    "ref": "Psalm 27:14 (KJV)"
+   },
+   {
+    "text": "I wait for the Lord, my soul doth wait, and in his word do I hope.",
+    "ref": "Psalm 130:5 (KJV)"
+   },
+   {
+    "text": "Rest in the Lord, and wait patiently for him: fret not thyself because of him who prospereth in his way, because of the man who bringeth wicked devices to pass.",
+    "ref": "Psalm 37:7 (KJV)"
+   },
+   {
+    "text": "My soul, wait thou only upon God; for my expectation is from him.",
+    "ref": "Psalm 62:5 (KJV)"
+   },
+   {
+    "text": "Pray without ceasing.",
+    "ref": "1 Thessalonians 5:17 (KJV)"
+   },
+   {
+    "text": "My voice shalt thou hear in the morning, O Lord; in the morning will I direct my prayer unto thee, and will look up.",
+    "ref": "Psalm 5:3 (KJV)"
+   },
+   {
+    "text": "The Lord shall preserve thee from all evil: he shall preserve thy soul.",
+    "ref": "Psalm 121:7 (KJV)"
    }
   ]
  },
@@ -69,6 +141,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
     "ref": "Psalm 23:4 (KJV)"
+   },
+   {
+    "text": "When thou passest through the waters, I will be with thee; and through the rivers, they shall not overflow thee: when thou walkest through the fire, thou shalt not be burned; neither shall the flame kindle upon thee.",
+    "ref": "Isaiah 43:2 (KJV)"
+   },
+   {
+    "text": "I will not leave you comfortless: I will come to you.",
+    "ref": "John 14:18 (KJV)"
+   },
+   {
+    "text": "The Lord thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing.",
+    "ref": "Zephaniah 3:17 (KJV)"
+   },
+   {
+    "text": "For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.",
+    "ref": "Romans 8:38-39 (KJV)"
+   },
+   {
+    "text": "Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee.",
+    "ref": "Hebrews 13:5 (KJV)"
+   },
+   {
+    "text": "God is our refuge and strength, a very present help in trouble.",
+    "ref": "Psalm 46:1 (KJV)"
+   },
+   {
+    "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest.",
+    "ref": "Joshua 1:9 (KJV)"
+   },
+   {
+    "text": "Whither shall I go from thy spirit? or whither shall I flee from thy presence?",
+    "ref": "Psalm 139:7 (KJV)"
+   },
+   {
+    "text": "Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
+    "ref": "Matthew 28:20 (KJV)"
    }
   ]
  },
@@ -93,6 +201,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth.",
     "ref": "3 John 1:2 (KJV)"
+   },
+   {
+    "text": "The Lord hath appeared of old unto me, saying, Yea, I have loved thee with an everlasting love: therefore with lovingkindness have I drawn thee.",
+    "ref": "Jeremiah 31:3 (KJV)"
+   },
+   {
+    "text": "Behold, what manner of love the Father hath bestowed upon us, that we should be called the sons of God: therefore the world knoweth us not, because it knew him not.",
+    "ref": "1 John 3:1 (KJV)"
+   },
+   {
+    "text": "This is the day which the Lord hath made; we will rejoice and be glad in it.",
+    "ref": "Psalm 118:24 (KJV)"
+   },
+   {
+    "text": "For we are his workmanship, created in Christ Jesus unto good works, which God hath before ordained that we should walk in them.",
+    "ref": "Ephesians 2:10 (KJV)"
+   },
+   {
+    "text": "Thou wilt shew me the path of life: in thy presence is fulness of joy; at thy right hand there are pleasures for evermore.",
+    "ref": "Psalm 16:11 (KJV)"
+   },
+   {
+    "text": "The Lord shall preserve thy going out and thy coming in from this time forth, and even for evermore.",
+    "ref": "Psalm 121:8 (KJV)"
+   },
+   {
+    "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+    "ref": "Numbers 6:24-26 (KJV)"
+   },
+   {
+    "text": "Grant thee according to thine own heart, and fulfil all thy counsel.",
+    "ref": "Psalm 20:4 (KJV)"
+   },
+   {
+    "text": "The Lord thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing.",
+    "ref": "Zephaniah 3:17 (KJV)"
    }
   ]
  },
@@ -117,6 +261,42 @@ window.FW_OCCASIONS = {
    {
     "text": "This is the day which the Lord hath made; we will rejoice and be glad in it.",
     "ref": "Psalm 118:24 (KJV)"
+   },
+   {
+    "text": "For thou, Lord, wilt bless the righteous; with favour wilt thou compass him as with a shield.",
+    "ref": "Psalm 5:12 (KJV)"
+   },
+   {
+    "text": "Thou wilt shew me the path of life: in thy presence is fulness of joy; at thy right hand there are pleasures for evermore.",
+    "ref": "Psalm 16:11 (KJV)"
+   },
+   {
+    "text": "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.",
+    "ref": "Romans 15:13 (KJV)"
+   },
+   {
+    "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+    "ref": "Numbers 6:24-26 (KJV)"
+   },
+   {
+    "text": "Wherefore comfort yourselves together, and edify one another, even as also ye do.",
+    "ref": "1 Thessalonians 5:11 (KJV)"
+   },
+   {
+    "text": "Ointment and perfume rejoice the heart: so doth the sweetness of a man’s friend by hearty counsel.",
+    "ref": "Proverbs 27:9 (KJV)"
+   },
+   {
+    "text": "It is of the Lord’s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
+    "ref": "Lamentations 3:22-23 (KJV)"
+   },
+   {
+    "text": "And let the beauty of the Lord our God be upon us: and establish thou the work of our hands upon us; yea, the work of our hands establish thou it.",
+    "ref": "Psalm 90:17 (KJV)"
+   },
+   {
+    "text": "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth.",
+    "ref": "3 John 1:2 (KJV)"
    }
   ]
  },
@@ -141,6 +321,42 @@ window.FW_OCCASIONS = {
    {
     "text": "And let us not be weary in well doing: for in due season we shall reap, if we faint not.",
     "ref": "Galatians 6:9 (KJV)"
+   },
+   {
+    "text": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
+    "ref": "Psalm 136:1 (KJV)"
+   },
+   {
+    "text": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
+    "ref": "1 Thessalonians 5:18 (KJV)"
+   },
+   {
+    "text": "Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.",
+    "ref": "Psalm 100:4 (KJV)"
+   },
+   {
+    "text": "Thanks be unto God for his unspeakable gift.",
+    "ref": "2 Corinthians 9:15 (KJV)"
+   },
+   {
+    "text": "And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful.",
+    "ref": "Colossians 3:15 (KJV)"
+   },
+   {
+    "text": "Withhold not good from them to whom it is due, when it is in the power of thine hand to do it.",
+    "ref": "Proverbs 3:27 (KJV)"
+   },
+   {
+    "text": "But to do good and to communicate forget not: for with such sacrifices God is well pleased.",
+    "ref": "Hebrews 13:16 (KJV)"
+   },
+   {
+    "text": "Let your light so shine before men, that they may see your good works, and glorify your Father which is in heaven.",
+    "ref": "Matthew 5:16 (KJV)"
+   },
+   {
+    "text": "As we have therefore opportunity, let us do good unto all men, especially unto them who are of the household of faith.",
+    "ref": "Galatians 6:10 (KJV)"
    }
   ]
  },
@@ -165,6 +381,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; Who comforteth us in all our tribulation, that we may be able to comfort them which are in any trouble, by the comfort wherewith we ourselves are comforted of God.",
     "ref": "2 Corinthians 1:3-4 (KJV)"
+   },
+   {
+    "text": "He healeth the broken in heart, and bindeth up their wounds.",
+    "ref": "Psalm 147:3 (KJV)"
+   },
+   {
+    "text": "And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain: for the former things are passed away.",
+    "ref": "Revelation 21:4 (KJV)"
+   },
+   {
+    "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+    "ref": "Matthew 11:28 (KJV)"
+   },
+   {
+    "text": "Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.",
+    "ref": "Psalm 23:4 (KJV)"
+   },
+   {
+    "text": "Let not your heart be troubled: ye believe in God, believe also in me.",
+    "ref": "John 14:1 (KJV)"
+   },
+   {
+    "text": "For if we believe that Jesus died and rose again, even so them also which sleep in Jesus will God bring with him.",
+    "ref": "1 Thessalonians 4:14 (KJV)"
+   },
+   {
+    "text": "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.",
+    "ref": "Isaiah 41:10 (KJV)"
+   },
+   {
+    "text": "God is our refuge and strength, a very present help in trouble.",
+    "ref": "Psalm 46:1 (KJV)"
+   },
+   {
+    "text": "For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.",
+    "ref": "Romans 8:38-39 (KJV)"
    }
   ]
  },
@@ -189,6 +441,42 @@ window.FW_OCCASIONS = {
    {
     "text": "He giveth power to the faint; and to them that have no might he increaseth strength.",
     "ref": "Isaiah 40:29 (KJV)"
+   },
+   {
+    "text": "He sent his word, and healed them, and delivered them from their destructions.",
+    "ref": "Psalm 107:20 (KJV)"
+   },
+   {
+    "text": "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed.",
+    "ref": "Isaiah 53:5 (KJV)"
+   },
+   {
+    "text": "He healeth the broken in heart, and bindeth up their wounds.",
+    "ref": "Psalm 147:3 (KJV)"
+   },
+   {
+    "text": "O Lord my God, I cried unto thee, and thou hast healed me.",
+    "ref": "Psalm 30:2 (KJV)"
+   },
+   {
+    "text": "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.",
+    "ref": "Isaiah 41:10 (KJV)"
+   },
+   {
+    "text": "And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me.",
+    "ref": "2 Corinthians 12:9 (KJV)"
+   },
+   {
+    "text": "Heal me, O Lord, and I shall be healed; save me, and I shall be saved: for thou art my praise.",
+    "ref": "Jeremiah 17:14 (KJV)"
+   },
+   {
+    "text": "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
+    "ref": "Isaiah 40:31 (KJV)"
+   },
+   {
+    "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+    "ref": "Matthew 11:28 (KJV)"
    }
   ]
  },
@@ -213,6 +501,42 @@ window.FW_OCCASIONS = {
    {
     "text": "And he said unto me, My grace is sufficient for thee: for my strength is made perfect in weakness. Most gladly therefore will I rather glory in my infirmities, that the power of Christ may rest upon me.",
     "ref": "2 Corinthians 12:9 (KJV)"
+   },
+   {
+    "text": "I can do all things through Christ which strengtheneth me.",
+    "ref": "Philippians 4:13 (KJV)"
+   },
+   {
+    "text": "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
+    "ref": "Isaiah 40:31 (KJV)"
+   },
+   {
+    "text": "God is our refuge and strength, a very present help in trouble.",
+    "ref": "Psalm 46:1 (KJV)"
+   },
+   {
+    "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest.",
+    "ref": "Joshua 1:9 (KJV)"
+   },
+   {
+    "text": "The Lord is my strength and my shield; my heart trusted in him, and I am helped: therefore my heart greatly rejoiceth; and with my song will I praise him.",
+    "ref": "Psalm 28:7 (KJV)"
+   },
+   {
+    "text": "My flesh and my heart faileth: but God is the strength of my heart, and my portion for ever.",
+    "ref": "Psalm 73:26 (KJV)"
+   },
+   {
+    "text": "Finally, my brethren, be strong in the Lord, and in the power of his might.",
+    "ref": "Ephesians 6:10 (KJV)"
+   },
+   {
+    "text": "Be strong and of a good courage, fear not, nor be afraid of them: for the Lord thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee.",
+    "ref": "Deuteronomy 31:6 (KJV)"
+   },
+   {
+    "text": "For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.",
+    "ref": "2 Timothy 1:7 (KJV)"
    }
   ]
  },
@@ -237,6 +561,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Remember ye not the former things, neither consider the things of old. Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness, and rivers in the desert.",
     "ref": "Isaiah 43:18-19 (KJV)"
+   },
+   {
+    "text": "The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.",
+    "ref": "Psalm 34:18 (KJV)"
+   },
+   {
+    "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+    "ref": "Matthew 11:28 (KJV)"
+   },
+   {
+    "text": "For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.",
+    "ref": "Jeremiah 29:11 (KJV)"
+   },
+   {
+    "text": "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.",
+    "ref": "Isaiah 41:10 (KJV)"
+   },
+   {
+    "text": "And we know that all things work together for good to them that love God, to them who are the called according to his purpose.",
+    "ref": "Romans 8:28 (KJV)"
+   },
+   {
+    "text": "God is our refuge and strength, a very present help in trouble.",
+    "ref": "Psalm 46:1 (KJV)"
+   },
+   {
+    "text": "Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.",
+    "ref": "2 Corinthians 5:17 (KJV)"
+   },
+   {
+    "text": "Cast thy burden upon the Lord, and he shall sustain thee: he shall never suffer the righteous to be moved.",
+    "ref": "Psalm 55:22 (KJV)"
+   },
+   {
+    "text": "And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+    "ref": "Philippians 4:7 (KJV)"
    }
   ]
  },
@@ -261,6 +621,42 @@ window.FW_OCCASIONS = {
    {
     "text": "I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works; and that my soul knoweth right well.",
     "ref": "Psalm 139:14 (KJV)"
+   },
+   {
+    "text": "So teach us to number our days, that we may apply our hearts unto wisdom.",
+    "ref": "Psalm 90:12 (KJV)"
+   },
+   {
+    "text": "Grant thee according to thine own heart, and fulfil all thy counsel.",
+    "ref": "Psalm 20:4 (KJV)"
+   },
+   {
+    "text": "Thou wilt shew me the path of life: in thy presence is fulness of joy; at thy right hand there are pleasures for evermore.",
+    "ref": "Psalm 16:11 (KJV)"
+   },
+   {
+    "text": "For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.",
+    "ref": "Jeremiah 29:11 (KJV)"
+   },
+   {
+    "text": "It is of the Lord’s mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
+    "ref": "Lamentations 3:22-23 (KJV)"
+   },
+   {
+    "text": "The Lord thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing.",
+    "ref": "Zephaniah 3:17 (KJV)"
+   },
+   {
+    "text": "For we are his workmanship, created in Christ Jesus unto good works, which God hath before ordained that we should walk in them.",
+    "ref": "Ephesians 2:10 (KJV)"
+   },
+   {
+    "text": "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth.",
+    "ref": "3 John 1:2 (KJV)"
+   },
+   {
+    "text": "For he shall give his angels charge over thee, to keep thee in all thy ways.",
+    "ref": "Psalm 91:11 (KJV)"
    }
   ]
  },
@@ -285,6 +681,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Delight thyself also in the Lord; and he shall give thee the desires of thine heart.",
     "ref": "Psalm 37:4 (KJV)"
+   },
+   {
+    "text": "Grant thee according to thine own heart, and fulfil all thy counsel.",
+    "ref": "Psalm 20:4 (KJV)"
+   },
+   {
+    "text": "Commit thy works unto the Lord, and thy thoughts shall be established.",
+    "ref": "Proverbs 16:3 (KJV)"
+   },
+   {
+    "text": "And whatsoever ye do, do it heartily, as to the Lord, and not unto men; Knowing that of the Lord ye shall receive the reward of the inheritance: for ye serve the Lord Christ.",
+    "ref": "Colossians 3:23-24 (KJV)"
+   },
+   {
+    "text": "And let the beauty of the Lord our God be upon us: and establish thou the work of our hands upon us; yea, the work of our hands establish thou it.",
+    "ref": "Psalm 90:17 (KJV)"
+   },
+   {
+    "text": "This is the Lord’s doing; it is marvellous in our eyes.",
+    "ref": "Psalm 118:23 (KJV)"
+   },
+   {
+    "text": "Not unto us, O Lord, not unto us, but unto thy name give glory, for thy mercy, and for thy truth’s sake.",
+    "ref": "Psalm 115:1 (KJV)"
+   },
+   {
+    "text": "For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.",
+    "ref": "Jeremiah 29:11 (KJV)"
+   },
+   {
+    "text": "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.",
+    "ref": "Romans 15:13 (KJV)"
+   },
+   {
+    "text": "Whether therefore ye eat, or drink, or whatsoever ye do, do all to the glory of God.",
+    "ref": "1 Corinthians 10:31 (KJV)"
    }
   ]
  },
@@ -309,6 +741,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest.",
     "ref": "Joshua 1:9 (KJV)"
+   },
+   {
+    "text": "Commit thy works unto the Lord, and thy thoughts shall be established.",
+    "ref": "Proverbs 16:3 (KJV)"
+   },
+   {
+    "text": "I will instruct thee and teach thee in the way which thou shalt go: I will guide thee with mine eye.",
+    "ref": "Psalm 32:8 (KJV)"
+   },
+   {
+    "text": "And thine ears shall hear a word behind thee, saying, This is the way, walk ye in it, when ye turn to the right hand, and when ye turn to the left.",
+    "ref": "Isaiah 30:21 (KJV)"
+   },
+   {
+    "text": "Study to shew thyself approved unto God, a workman that needeth not to be ashamed, rightly dividing the word of truth.",
+    "ref": "2 Timothy 2:15 (KJV)"
+   },
+   {
+    "text": "And whatsoever ye do, do it heartily, as to the Lord, and not unto men; Knowing that of the Lord ye shall receive the reward of the inheritance: for ye serve the Lord Christ.",
+    "ref": "Colossians 3:23-24 (KJV)"
+   },
+   {
+    "text": "Let no man despise thy youth; but be thou an example of the believers, in word, in conversation, in charity, in spirit, in faith, in purity.",
+    "ref": "1 Timothy 4:12 (KJV)"
+   },
+   {
+    "text": "Commit thy way unto the Lord; trust also in him; and he shall bring it to pass.",
+    "ref": "Psalm 37:5 (KJV)"
+   },
+   {
+    "text": "A man’s heart deviseth his way: but the Lord directeth his steps.",
+    "ref": "Proverbs 16:9 (KJV)"
+   },
+   {
+    "text": "He hath shewed thee, O man, what is good; and what doth the Lord require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?",
+    "ref": "Micah 6:8 (KJV)"
    }
   ]
  },
@@ -333,6 +801,42 @@ window.FW_OCCASIONS = {
    {
     "text": "And above all things have fervent charity among yourselves: for charity shall cover the multitude of sins.",
     "ref": "1 Peter 4:8 (KJV)"
+   },
+   {
+    "text": "And now abideth faith, hope, charity, these three; but the greatest of these is charity.",
+    "ref": "1 Corinthians 13:13 (KJV)"
+   },
+   {
+    "text": "Therefore shall a man leave his father and his mother, and shall cleave unto his wife: and they shall be one flesh.",
+    "ref": "Genesis 2:24 (KJV)"
+   },
+   {
+    "text": "With all lowliness and meekness, with longsuffering, forbearing one another in love; Endeavouring to keep the unity of the Spirit in the bond of peace.",
+    "ref": "Ephesians 4:2-3 (KJV)"
+   },
+   {
+    "text": "Whoso findeth a wife findeth a good thing, and obtaineth favour of the Lord.",
+    "ref": "Proverbs 18:22 (KJV)"
+   },
+   {
+    "text": "What therefore God hath joined together, let not man put asunder.",
+    "ref": "Mark 10:9 (KJV)"
+   },
+   {
+    "text": "Beloved, let us love one another: for love is of God; and every one that loveth is born of God, and knoweth God.",
+    "ref": "1 John 4:7 (KJV)"
+   },
+   {
+    "text": "We love him, because he first loved us.",
+    "ref": "1 John 4:19 (KJV)"
+   },
+   {
+    "text": "O magnify the Lord with me, and let us exalt his name together.",
+    "ref": "Psalm 34:3 (KJV)"
+   },
+   {
+    "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+    "ref": "Numbers 6:24-26 (KJV)"
    }
   ]
  },
@@ -357,6 +861,42 @@ window.FW_OCCASIONS = {
    {
     "text": "I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works; and that my soul knoweth right well.",
     "ref": "Psalm 139:14 (KJV)"
+   },
+   {
+    "text": "For thou hast possessed my reins: thou hast covered me in my mother’s womb.",
+    "ref": "Psalm 139:13 (KJV)"
+   },
+   {
+    "text": "Before I formed thee in the belly I knew thee; and before thou camest forth out of the womb I sanctified thee, and I ordained thee a prophet unto the nations.",
+    "ref": "Jeremiah 1:5 (KJV)"
+   },
+   {
+    "text": "But Jesus said, Suffer little children, and forbid them not, to come unto me: for of such is the kingdom of heaven.",
+    "ref": "Matthew 19:14 (KJV)"
+   },
+   {
+    "text": "For this child I prayed; and the Lord hath given me my petition which I asked of him: Therefore also I have lent him to the Lord; as long as he liveth he shall be lent to the Lord. And he worshipped the Lord there.",
+    "ref": "1 Samuel 1:27-28 (KJV)"
+   },
+   {
+    "text": "Train up a child in the way he should go: and when he is old, he will not depart from it.",
+    "ref": "Proverbs 22:6 (KJV)"
+   },
+   {
+    "text": "He shall feed his flock like a shepherd: he shall gather the lambs with his arm, and carry them in his bosom, and shall gently lead those that are with young.",
+    "ref": "Isaiah 40:11 (KJV)"
+   },
+   {
+    "text": "The Lord thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing.",
+    "ref": "Zephaniah 3:17 (KJV)"
+   },
+   {
+    "text": "Every good gift and every perfect gift is from above, and cometh down from the Father of lights, with whom is no variableness, neither shadow of turning.",
+    "ref": "James 1:17 (KJV)"
+   },
+   {
+    "text": "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth.",
+    "ref": "3 John 1:2 (KJV)"
    }
   ]
  },
@@ -381,6 +921,42 @@ window.FW_OCCASIONS = {
    {
     "text": "For as many of you as have been baptized into Christ have put on Christ.",
     "ref": "Galatians 3:27 (KJV)"
+   },
+   {
+    "text": "Then Peter said unto them, Repent, and be baptized every one of you in the name of Jesus Christ for the remission of sins, and ye shall receive the gift of the Holy Ghost.",
+    "ref": "Acts 2:38 (KJV)"
+   },
+   {
+    "text": "Know ye not, that so many of us as were baptized into Jesus Christ were baptized into his death?",
+    "ref": "Romans 6:3 (KJV)"
+   },
+   {
+    "text": "And now why tarriest thou? arise, and be baptized, and wash away thy sins, calling on the name of the Lord.",
+    "ref": "Acts 22:16 (KJV)"
+   },
+   {
+    "text": "Buried with him in baptism, wherein also ye are risen with him through the faith of the operation of God, who hath raised him from the dead.",
+    "ref": "Colossians 2:12 (KJV)"
+   },
+   {
+    "text": "Jesus answered, Verily, verily, I say unto thee, Except a man be born of water and of the Spirit, he cannot enter into the kingdom of God.",
+    "ref": "John 3:5 (KJV)"
+   },
+   {
+    "text": "I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me.",
+    "ref": "Galatians 2:20 (KJV)"
+   },
+   {
+    "text": "For ye are all the children of God by faith in Christ Jesus.",
+    "ref": "Galatians 3:26 (KJV)"
+   },
+   {
+    "text": "And as they went on their way, they came unto a certain water: and the eunuch said, See, here is water; what doth hinder me to be baptized?",
+    "ref": "Acts 8:36 (KJV)"
+   },
+   {
+    "text": "Likewise reckon ye also yourselves to be dead indeed unto sin, but alive unto God through Jesus Christ our Lord.",
+    "ref": "Romans 6:11 (KJV)"
    }
   ]
  },
@@ -405,6 +981,42 @@ window.FW_OCCASIONS = {
    {
     "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
     "ref": "John 3:16 (KJV)"
+   },
+   {
+    "text": "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast.",
+    "ref": "Ephesians 2:8-9 (KJV)"
+   },
+   {
+    "text": "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved.",
+    "ref": "Romans 10:9 (KJV)"
+   },
+   {
+    "text": "Verily, verily, I say unto you, He that heareth my word, and believeth on him that sent me, hath everlasting life, and shall not come into condemnation; but is passed from death unto life.",
+    "ref": "John 5:24 (KJV)"
+   },
+   {
+    "text": "If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.",
+    "ref": "1 John 1:9 (KJV)"
+   },
+   {
+    "text": "If the Son therefore shall make you free, ye shall be free indeed.",
+    "ref": "John 8:36 (KJV)"
+   },
+   {
+    "text": "There is therefore now no condemnation to them which are in Christ Jesus, who walk not after the flesh, but after the Spirit.",
+    "ref": "Romans 8:1 (KJV)"
+   },
+   {
+    "text": "My sheep hear my voice, and I know them, and they follow me: And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand.",
+    "ref": "John 10:27-28 (KJV)"
+   },
+   {
+    "text": "As ye have therefore received Christ Jesus the Lord, so walk ye in him: Rooted and built up in him, and stablished in the faith, as ye have been taught, abounding therein with thanksgiving.",
+    "ref": "Colossians 2:6-7 (KJV)"
+   },
+   {
+    "text": "Behold, what manner of love the Father hath bestowed upon us, that we should be called the sons of God: therefore the world knoweth us not, because it knew him not.",
+    "ref": "1 John 3:1 (KJV)"
    }
   ]
  },
@@ -429,6 +1041,42 @@ window.FW_OCCASIONS = {
    {
     "text": "I sought the Lord, and he heard me, and delivered me from all my fears.",
     "ref": "Psalm 34:4 (KJV)"
+   },
+   {
+    "text": "The Lord is my strength and my shield; my heart trusted in him, and I am helped: therefore my heart greatly rejoiceth; and with my song will I praise him.",
+    "ref": "Psalm 28:7 (KJV)"
+   },
+   {
+    "text": "Blessed be God, which hath not turned away my prayer, nor his mercy from me.",
+    "ref": "Psalm 66:20 (KJV)"
+   },
+   {
+    "text": "And this is the confidence that we have in him, that, if we ask any thing according to his will, he heareth us: And if we know that he hear us, whatsoever we ask, we know that we have the petitions that we desired of him.",
+    "ref": "1 John 5:14-15 (KJV)"
+   },
+   {
+    "text": "I will praise thee: for thou hast heard me, and art become my salvation.",
+    "ref": "Psalm 118:21 (KJV)"
+   },
+   {
+    "text": "I waited patiently for the Lord; and he inclined unto me, and heard my cry.",
+    "ref": "Psalm 40:1 (KJV)"
+   },
+   {
+    "text": "Bless the Lord, O my soul: and all that is within me, bless his holy name.",
+    "ref": "Psalm 103:1 (KJV)"
+   },
+   {
+    "text": "I will praise thee, O Lord, with my whole heart; I will shew forth all thy marvellous works.",
+    "ref": "Psalm 9:1 (KJV)"
+   },
+   {
+    "text": "Now unto him that is able to do exceeding abundantly above all that we ask or think, according to the power that worketh in us, Unto him be glory in the church by Christ Jesus throughout all ages, world without end. Amen.",
+    "ref": "Ephesians 3:20-21 (KJV)"
+   },
+   {
+    "text": "For with God nothing shall be impossible.",
+    "ref": "Luke 1:37 (KJV)"
    }
   ]
  },
@@ -453,6 +1101,42 @@ window.FW_OCCASIONS = {
    {
     "text": "For I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil, to give you an expected end.",
     "ref": "Jeremiah 29:11 (KJV)"
+   },
+   {
+    "text": "Therefore if any man be in Christ, he is a new creature: old things are passed away; behold, all things are become new.",
+    "ref": "2 Corinthians 5:17 (KJV)"
+   },
+   {
+    "text": "Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus.",
+    "ref": "Philippians 3:13-14 (KJV)"
+   },
+   {
+    "text": "Remember ye not the former things, neither consider the things of old.",
+    "ref": "Isaiah 43:18 (KJV)"
+   },
+   {
+    "text": "Commit thy works unto the Lord, and thy thoughts shall be established.",
+    "ref": "Proverbs 16:3 (KJV)"
+   },
+   {
+    "text": "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.",
+    "ref": "Proverbs 3:5-6 (KJV)"
+   },
+   {
+    "text": "So teach us to number our days, that we may apply our hearts unto wisdom.",
+    "ref": "Psalm 90:12 (KJV)"
+   },
+   {
+    "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+    "ref": "Numbers 6:24-26 (KJV)"
+   },
+   {
+    "text": "But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint.",
+    "ref": "Isaiah 40:31 (KJV)"
+   },
+   {
+    "text": "This is the day which the Lord hath made; we will rejoice and be glad in it.",
+    "ref": "Psalm 118:24 (KJV)"
    }
   ]
  },
@@ -477,6 +1161,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Took branches of palm trees, and went forth to meet him, and cried, Hosanna: Blessed is the King of Israel that cometh in the name of the Lord.",
     "ref": "John 12:13 (KJV)"
+   },
+   {
+    "text": "Saying, Blessed be the King that cometh in the name of the Lord: peace in heaven, and glory in the highest.",
+    "ref": "Luke 19:38 (KJV)"
+   },
+   {
+    "text": "Blessed be he that cometh in the name of the Lord: we have blessed you out of the house of the Lord.",
+    "ref": "Psalm 118:26 (KJV)"
+   },
+   {
+    "text": "Saying with a loud voice, Worthy is the Lamb that was slain to receive power, and riches, and wisdom, and strength, and honour, and glory, and blessing.",
+    "ref": "Revelation 5:12 (KJV)"
+   },
+   {
+    "text": "And he answered and said unto them, I tell you that, if these should hold their peace, the stones would immediately cry out.",
+    "ref": "Luke 19:40 (KJV)"
+   },
+   {
+    "text": "Lift up your heads, O ye gates; and be ye lift up, ye everlasting doors; and the King of glory shall come in.",
+    "ref": "Psalm 24:7 (KJV)"
+   },
+   {
+    "text": "That at the name of Jesus every knee should bow, of things in heaven, and things in earth, and things under the earth; And that every tongue should confess that Jesus Christ is Lord, to the glory of God the Father.",
+    "ref": "Philippians 2:10-11 (KJV)"
+   },
+   {
+    "text": "And the multitude said, This is Jesus the prophet of Nazareth of Galilee.",
+    "ref": "Matthew 21:11 (KJV)"
+   },
+   {
+    "text": "This is the day which the Lord hath made; we will rejoice and be glad in it.",
+    "ref": "Psalm 118:24 (KJV)"
+   },
+   {
+    "text": "And he hath on his vesture and on his thigh a name written, KING OF KINGS, AND LORD OF LORDS.",
+    "ref": "Revelation 19:16 (KJV)"
    }
   ]
  },
@@ -501,6 +1221,42 @@ window.FW_OCCASIONS = {
    {
     "text": "But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us.",
     "ref": "Romans 5:8 (KJV)"
+   },
+   {
+    "text": "When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost.",
+    "ref": "John 19:30 (KJV)"
+   },
+   {
+    "text": "Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live unto righteousness: by whose stripes ye were healed.",
+    "ref": "1 Peter 2:24 (KJV)"
+   },
+   {
+    "text": "For he hath made him to be sin for us, who knew no sin; that we might be made the righteousness of God in him.",
+    "ref": "2 Corinthians 5:21 (KJV)"
+   },
+   {
+    "text": "Greater love hath no man than this, that a man lay down his life for his friends.",
+    "ref": "John 15:13 (KJV)"
+   },
+   {
+    "text": "All we like sheep have gone astray; we have turned every one to his own way; and the Lord hath laid on him the iniquity of us all.",
+    "ref": "Isaiah 53:6 (KJV)"
+   },
+   {
+    "text": "Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God.",
+    "ref": "Hebrews 12:2 (KJV)"
+   },
+   {
+    "text": "Then said Jesus, Father, forgive them; for they know not what they do. And they parted his raiment, and cast lots.",
+    "ref": "Luke 23:34 (KJV)"
+   },
+   {
+    "text": "Surely he hath borne our griefs, and carried our sorrows: yet we did esteem him stricken, smitten of God, and afflicted.",
+    "ref": "Isaiah 53:4 (KJV)"
+   },
+   {
+    "text": "Herein is love, not that we loved God, but that he loved us, and sent his Son to be the propitiation for our sins.",
+    "ref": "1 John 4:10 (KJV)"
    }
   ]
  },
@@ -525,6 +1281,42 @@ window.FW_OCCASIONS = {
    {
     "text": "But thanks be to God, which giveth us the victory through our Lord Jesus Christ.",
     "ref": "1 Corinthians 15:57 (KJV)"
+   },
+   {
+    "text": "Saying, The Lord is risen indeed, and hath appeared to Simon.",
+    "ref": "Luke 24:34 (KJV)"
+   },
+   {
+    "text": "But now is Christ risen from the dead, and become the firstfruits of them that slept.",
+    "ref": "1 Corinthians 15:20 (KJV)"
+   },
+   {
+    "text": "I am he that liveth, and was dead; and, behold, I am alive for evermore, Amen; and have the keys of hell and of death.",
+    "ref": "Revelation 1:18 (KJV)"
+   },
+   {
+    "text": "Knowing that Christ being raised from the dead dieth no more; death hath no more dominion over him.",
+    "ref": "Romans 6:9 (KJV)"
+   },
+   {
+    "text": "Yet a little while, and the world seeth me no more; but ye see me: because I live, ye shall live also.",
+    "ref": "John 14:19 (KJV)"
+   },
+   {
+    "text": "O death, where is thy sting? O grave, where is thy victory?",
+    "ref": "1 Corinthians 15:55 (KJV)"
+   },
+   {
+    "text": "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved.",
+    "ref": "Romans 10:9 (KJV)"
+   },
+   {
+    "text": "And he saith unto them, Be not affrighted: Ye seek Jesus of Nazareth, which was crucified: he is risen; he is not here: behold the place where they laid him.",
+    "ref": "Mark 16:6 (KJV)"
+   },
+   {
+    "text": "Whom God hath raised up, having loosed the pains of death: because it was not possible that he should be holden of it.",
+    "ref": "Acts 2:24 (KJV)"
    }
   ]
  },
@@ -549,6 +1341,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Wherefore he is able also to save them to the uttermost that come unto God by him, seeing he ever liveth to make intercession for them.",
     "ref": "Hebrews 7:25 (KJV)"
+   },
+   {
+    "text": "And it came to pass, while he blessed them, he was parted from them, and carried up into heaven.",
+    "ref": "Luke 24:51 (KJV)"
+   },
+   {
+    "text": "And when he had spoken these things, while they beheld, he was taken up; and a cloud received him out of their sight.",
+    "ref": "Acts 1:9 (KJV)"
+   },
+   {
+    "text": "So then after the Lord had spoken unto them, he was received up into heaven, and sat on the right hand of God.",
+    "ref": "Mark 16:19 (KJV)"
+   },
+   {
+    "text": "Seeing then that we have a great high priest, that is passed into the heavens, Jesus the Son of God, let us hold fast our profession.",
+    "ref": "Hebrews 4:14 (KJV)"
+   },
+   {
+    "text": "If ye then be risen with Christ, seek those things which are above, where Christ sitteth on the right hand of God.",
+    "ref": "Colossians 3:1 (KJV)"
+   },
+   {
+    "text": "Nevertheless I tell you the truth; It is expedient for you that I go away: for if I go not away, the Comforter will not come unto you; but if I depart, I will send him unto you.",
+    "ref": "John 16:7 (KJV)"
+   },
+   {
+    "text": "Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen.",
+    "ref": "Matthew 28:20 (KJV)"
+   },
+   {
+    "text": "Who is he that condemneth? It is Christ that died, yea rather, that is risen again, who is even at the right hand of God, who also maketh intercession for us.",
+    "ref": "Romans 8:34 (KJV)"
+   },
+   {
+    "text": "He that descended is the same also that ascended up far above all heavens, that he might fill all things.)",
+    "ref": "Ephesians 4:10 (KJV)"
    }
   ]
  },
@@ -573,6 +1401,42 @@ window.FW_OCCASIONS = {
    {
     "text": "But the Comforter, which is the Holy Ghost, whom the Father will send in my name, he shall teach you all things, and bring all things to your remembrance, whatsoever I have said unto you.",
     "ref": "John 14:26 (KJV)"
+   },
+   {
+    "text": "And when the day of Pentecost was fully come, they were all with one accord in one place.",
+    "ref": "Acts 2:1 (KJV)"
+   },
+   {
+    "text": "Then Peter said unto them, Repent, and be baptized every one of you in the name of Jesus Christ for the remission of sins, and ye shall receive the gift of the Holy Ghost.",
+    "ref": "Acts 2:38 (KJV)"
+   },
+   {
+    "text": "And it shall come to pass, that whosoever shall call on the name of the Lord shall be saved.",
+    "ref": "Acts 2:21 (KJV)"
+   },
+   {
+    "text": "Now the Lord is that Spirit: and where the Spirit of the Lord is, there is liberty.",
+    "ref": "2 Corinthians 3:17 (KJV)"
+   },
+   {
+    "text": "But the fruit of the Spirit is love, joy, peace, longsuffering, gentleness, goodness, faith, Meekness, temperance: against such there is no law.",
+    "ref": "Galatians 5:22-23 (KJV)"
+   },
+   {
+    "text": "Likewise the Spirit also helpeth our infirmities: for we know not what we should pray for as we ought: but the Spirit itself maketh intercession for us with groanings which cannot be uttered.",
+    "ref": "Romans 8:26 (KJV)"
+   },
+   {
+    "text": "Now there are diversities of gifts, but the same Spirit.",
+    "ref": "1 Corinthians 12:4 (KJV)"
+   },
+   {
+    "text": "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.",
+    "ref": "Romans 15:13 (KJV)"
+   },
+   {
+    "text": "Howbeit when he, the Spirit of truth, is come, he will guide you into all truth: for he shall not speak of himself; but whatsoever he shall hear, that shall he speak: and he will shew you things to come.",
+    "ref": "John 16:13 (KJV)"
    }
   ]
  },
@@ -597,6 +1461,42 @@ window.FW_OCCASIONS = {
    {
     "text": "As one whom his mother comforteth, so will I comfort you; and ye shall be comforted in Jerusalem.",
     "ref": "Isaiah 66:13 (KJV)"
+   },
+   {
+    "text": "She openeth her mouth with wisdom; and in her tongue is the law of kindness.",
+    "ref": "Proverbs 31:26 (KJV)"
+   },
+   {
+    "text": "Favour is deceitful, and beauty is vain: but a woman that feareth the Lord, she shall be praised.",
+    "ref": "Proverbs 31:30 (KJV)"
+   },
+   {
+    "text": "When I call to remembrance the unfeigned faith that is in thee, which dwelt first in thy grandmother Lois, and thy mother Eunice; and I am persuaded that in thee also.",
+    "ref": "2 Timothy 1:5 (KJV)"
+   },
+   {
+    "text": "Can a woman forget her sucking child, that she should not have compassion on the son of her womb? yea, they may forget, yet will I not forget thee.",
+    "ref": "Isaiah 49:15 (KJV)"
+   },
+   {
+    "text": "Many daughters have done virtuously, but thou excellest them all.",
+    "ref": "Proverbs 31:29 (KJV)"
+   },
+   {
+    "text": "Who can find a virtuous woman? for her price is far above rubies.",
+    "ref": "Proverbs 31:10 (KJV)"
+   },
+   {
+    "text": "My son, hear the instruction of thy father, and forsake not the law of thy mother: For they shall be an ornament of grace unto thy head, and chains about thy neck.",
+    "ref": "Proverbs 1:8-9 (KJV)"
+   },
+   {
+    "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+    "ref": "Numbers 6:24-26 (KJV)"
+   },
+   {
+    "text": "Lo, children are an heritage of the Lord: and the fruit of the womb is his reward.",
+    "ref": "Psalm 127:3 (KJV)"
    }
   ]
  },
@@ -621,6 +1521,42 @@ window.FW_OCCASIONS = {
    {
     "text": "And if it seem evil unto you to serve the Lord, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell: but as for me and my house, we will serve the Lord.",
     "ref": "Joshua 24:15 (KJV)"
+   },
+   {
+    "text": "The father of the righteous shall greatly rejoice: and he that begetteth a wise child shall have joy of him.",
+    "ref": "Proverbs 23:24 (KJV)"
+   },
+   {
+    "text": "And, ye fathers, provoke not your children to wrath: but bring them up in the nurture and admonition of the Lord.",
+    "ref": "Ephesians 6:4 (KJV)"
+   },
+   {
+    "text": "Hear, ye children, the instruction of a father, and attend to know understanding.",
+    "ref": "Proverbs 4:1 (KJV)"
+   },
+   {
+    "text": "Lo, children are an heritage of the Lord: and the fruit of the womb is his reward.",
+    "ref": "Psalm 127:3 (KJV)"
+   },
+   {
+    "text": "And these words, which I command thee this day, shall be in thine heart: And thou shalt teach them diligently unto thy children, and shalt talk of them when thou sittest in thine house, and when thou walkest by the way, and when thou liest down, and when thou risest up.",
+    "ref": "Deuteronomy 6:6-7 (KJV)"
+   },
+   {
+    "text": "Behold, what manner of love the Father hath bestowed upon us, that we should be called the sons of God: therefore the world knoweth us not, because it knew him not.",
+    "ref": "1 John 3:1 (KJV)"
+   },
+   {
+    "text": "In the fear of the Lord is strong confidence: and his children shall have a place of refuge.",
+    "ref": "Proverbs 14:26 (KJV)"
+   },
+   {
+    "text": "If ye then, being evil, know how to give good gifts unto your children, how much more shall your Father which is in heaven give good things to them that ask him?",
+    "ref": "Matthew 7:11 (KJV)"
+   },
+   {
+    "text": "The Lord bless thee, and keep thee: The Lord make his face shine upon thee, and be gracious unto thee: The Lord lift up his countenance upon thee, and give thee peace.",
+    "ref": "Numbers 6:24-26 (KJV)"
    }
   ]
  },
@@ -645,6 +1581,42 @@ window.FW_OCCASIONS = {
    {
     "text": "In every thing give thanks: for this is the will of God in Christ Jesus concerning you.",
     "ref": "1 Thessalonians 5:18 (KJV)"
+   },
+   {
+    "text": "Let us come before his presence with thanksgiving, and make a joyful noise unto him with psalms.",
+    "ref": "Psalm 95:2 (KJV)"
+   },
+   {
+    "text": "And whatsoever ye do in word or deed, do all in the name of the Lord Jesus, giving thanks to God and the Father by him.",
+    "ref": "Colossians 3:17 (KJV)"
+   },
+   {
+    "text": "O give thanks unto the Lord; for he is good: for his mercy endureth for ever.",
+    "ref": "Psalm 136:1 (KJV)"
+   },
+   {
+    "text": "I will praise thee, O Lord, with my whole heart; I will shew forth all thy marvellous works.",
+    "ref": "Psalm 9:1 (KJV)"
+   },
+   {
+    "text": "Every good gift and every perfect gift is from above, and cometh down from the Father of lights, with whom is no variableness, neither shadow of turning.",
+    "ref": "James 1:17 (KJV)"
+   },
+   {
+    "text": "Bless the Lord, O my soul: and all that is within me, bless his holy name.",
+    "ref": "Psalm 103:1 (KJV)"
+   },
+   {
+    "text": "To the end that my glory may sing praise to thee, and not be silent. O Lord my God, I will give thanks unto thee for ever.",
+    "ref": "Psalm 30:12 (KJV)"
+   },
+   {
+    "text": "Thanks be unto God for his unspeakable gift.",
+    "ref": "2 Corinthians 9:15 (KJV)"
+   },
+   {
+    "text": "This is the day which the Lord hath made; we will rejoice and be glad in it.",
+    "ref": "Psalm 118:24 (KJV)"
    }
   ]
  },
@@ -669,6 +1641,42 @@ window.FW_OCCASIONS = {
    {
     "text": "And if I go and prepare a place for you, I will come again, and receive you unto myself; that where I am, there ye may be also.",
     "ref": "John 14:3 (KJV)"
+   },
+   {
+    "text": "The voice of him that crieth in the wilderness, Prepare ye the way of the Lord, make straight in the desert a highway for our God.",
+    "ref": "Isaiah 40:3 (KJV)"
+   },
+   {
+    "text": "Through the tender mercy of our God; whereby the dayspring from on high hath visited us, To give light to them that sit in darkness and in the shadow of death, to guide our feet into the way of peace.",
+    "ref": "Luke 1:78-79 (KJV)"
+   },
+   {
+    "text": "Therefore the Lord himself shall give you a sign; Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel.",
+    "ref": "Isaiah 7:14 (KJV)"
+   },
+   {
+    "text": "But thou, Beth–lehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall he come forth unto me that is to be ruler in Israel; whose goings forth have been from of old, from everlasting.",
+    "ref": "Micah 5:2 (KJV)"
+   },
+   {
+    "text": "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.",
+    "ref": "Romans 15:13 (KJV)"
+   },
+   {
+    "text": "Arise, shine; for thy light is come, and the glory of the Lord is risen upon thee.",
+    "ref": "Isaiah 60:1 (KJV)"
+   },
+   {
+    "text": "Behold, I will send my messenger, and he shall prepare the way before me: and the Lord, whom ye seek, shall suddenly come to his temple, even the messenger of the covenant, whom ye delight in: behold, he shall come, saith the Lord of hosts.",
+    "ref": "Malachi 3:1 (KJV)"
+   },
+   {
+    "text": "I wait for the Lord, my soul doth wait, and in his word do I hope.",
+    "ref": "Psalm 130:5 (KJV)"
+   },
+   {
+    "text": "And when these things begin to come to pass, then look up, and lift up your heads; for your redemption draweth nigh.",
+    "ref": "Luke 21:28 (KJV)"
    }
   ]
  },
@@ -693,6 +1701,42 @@ window.FW_OCCASIONS = {
    {
     "text": "Behold, a virgin shall be with child, and shall bring forth a son, and they shall call his name Emmanuel, which being interpreted is, God with us.",
     "ref": "Matthew 1:23 (KJV)"
+   },
+   {
+    "text": "Glory to God in the highest, and on earth peace, good will toward men.",
+    "ref": "Luke 2:14 (KJV)"
+   },
+   {
+    "text": "And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
+    "ref": "John 1:14 (KJV)"
+   },
+   {
+    "text": "And she brought forth her firstborn son, and wrapped him in swaddling clothes, and laid him in a manger; because there was no room for them in the inn.",
+    "ref": "Luke 2:7 (KJV)"
+   },
+   {
+    "text": "When they saw the star, they rejoiced with exceeding great joy.",
+    "ref": "Matthew 2:10 (KJV)"
+   },
+   {
+    "text": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+    "ref": "John 3:16 (KJV)"
+   },
+   {
+    "text": "Therefore the Lord himself shall give you a sign; Behold, a virgin shall conceive, and bear a son, and shall call his name Immanuel.",
+    "ref": "Isaiah 7:14 (KJV)"
+   },
+   {
+    "text": "But thou, Beth–lehem Ephratah, though thou be little among the thousands of Judah, yet out of thee shall he come forth unto me that is to be ruler in Israel; whose goings forth have been from of old, from everlasting.",
+    "ref": "Micah 5:2 (KJV)"
+   },
+   {
+    "text": "Thanks be unto God for his unspeakable gift.",
+    "ref": "2 Corinthians 9:15 (KJV)"
+   },
+   {
+    "text": "And she shall bring forth a son, and thou shalt call his name JESUS: for he shall save his people from their sins.",
+    "ref": "Matthew 1:21 (KJV)"
    }
   ]
  }
@@ -910,7 +1954,7 @@ window.FW_GIFTS = {
    "thought": "Every good thing you have came from Him."
   },
   {
-   "text": "To the chief Musician upon Muth–labben, A Psalm of David. I will praise thee, O Lord, with my whole heart; I will shew forth all thy marvellous works.",
+   "text": "I will praise thee, O Lord, with my whole heart; I will shew forth all thy marvellous works.",
    "ref": "Psalm 9:1 (KJV)",
    "thought": "Count His marvelous works today, big and small."
   },
