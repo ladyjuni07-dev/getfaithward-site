@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" class="no-js"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Email confirmed | Even Here</title><meta name="description" content="Your Even Here email is confirmed." />
+<meta name="theme-color" content="#0F3B2E" />
+<meta property="og:title" content="Email confirmed | Even Here" /><meta property="og:description" content="Your Even Here email is confirmed." /><meta property="og:image" content="assets/logo-lockup.png" />
+<link rel="icon" href="assets/favicon.png" /><link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head><body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Even Here home"><img src="assets/logo.png" alt="" width="36" height="36" />Even Here</a>
+  <nav aria-label="Main"><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#healing">Healing</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#faq">FAQ</a></li></ul></nav>
+  <a class="btn gold" href="index.html#wl-hero">Join waitlist</a>
+</div></header>
+<main id="main" class="doc"><div class="wrap" style="text-align:center">
+<img src="assets/lamb-read.png" alt="Selah the lamb" width="160" height="160" style="margin:0 auto" />
+<div id="ok">
+<h1 style="margin-top:12px">Your email is confirmed.</h1>
+<p class="intro">You're all set. Go back to the Even Here app on your iPhone and sign in with your email and password.</p>
+</div>
+<div id="bad" hidden>
+<h1 style="margin-top:12px">That link didn't work.</h1>
+<p class="intro" id="badText">Confirmation links expire after a while, or may already have been used. Open Even Here and sign in. If it asks, request a new email.</p>
+</div>
+<p style="margin-top:24px"><a class="btn gold" href="index.html">About Even Here</a></p>
+</div></main>
+<script>
+(function () {
+  var h = new URLSearchParams(location.hash.slice(1)), q = new URLSearchParams(location.search);
+  var err = h.get("error_description") || q.get("error_description") || h.get("error") || q.get("error");
+  if (err) { document.getElementById("ok").hidden = true; document.getElementById("bad").hidden = false; }
+  if (location.hash || location.search) history.replaceState(null, "", location.pathname);
+})();
+</script>
+<footer><div class="wrap">
+  <div><a class="brand" href="index.html"><img src="assets/logo.png" alt="" width="36" height="36" />Even Here</a>
+  <p style="margin-top:14px;max-width:34ch">Every Step, Closer to Christ. A Bible and devotional companion for evangelical and Protestant believers.</p></div>
+  <div><h4>Even Here</h4><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#healing">Healing from Church Hurt</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#faq">FAQ</a></li></ul></div>
+  <div><h4>Help</h4><ul><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li><li><a href="mailto:support@getevenhere.com">support@getevenhere.com</a></li></ul></div>
+  <p class="legal">In crisis? Call or text 988 (U.S.) or call 911. Even Here is not a substitute for professional care. Bible text: King James Version and World English Bible (public domain). © 2026 Even Here.</p>
+</div></footer>
+<script src="main.js" defer></script>
+</body></html>
