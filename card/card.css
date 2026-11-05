@@ -50,6 +50,7 @@ img { display: block; max-width: 100%; height: auto; }
 .after { width: min(400px, 92vw); opacity: 0; display: none; text-align: center; color: rgba(255,255,255,.85); font-size: 14px; transition: opacity .6s ease .2s; }
 .after p { margin: 0 0 6px; }
 .after a { color: var(--gold); font-weight: 600; }
+.after .credit { margin: 18px auto 8px; max-width: 340px; font-size: 12px; line-height: 1.45; color: rgba(255,255,255,.72); }
 .revealed .after { opacity: 1; display: block; }
 
 @media (prefers-reduced-motion: reduce) { .env-flap, .card, .seal { transition: none !important; } }

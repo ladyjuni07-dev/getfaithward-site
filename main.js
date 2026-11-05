@@ -17,15 +17,15 @@ const bg = document.querySelector("[data-parallax]");
 const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (bg && !still) addEventListener("scroll", () => { const y = Math.min(scrollY, 900); bg.style.transform = `scale(1.06) translateY(${y * 0.18}px)`; }, { passive: true });
 
-// Try it: real KJV text
+// Try it: real World English Bible text (public domain everywhere, including the UK)
 const SITS = [
-  { label: "Anxious", ref: "Philippians 4:6", text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God.", then: "Then: a 3-minute Peace Mode, a devotional and a prayer for anxiety." },
-  { label: "Grieving", ref: "Psalm 34:18", text: "The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit.", then: "Then: verses for loss, a reflection, and a 7-day walk through grief." },
-  { label: "Hurt by church", ref: "Ezekiel 34:16", text: "I will seek that which was lost, and bring again that which was driven away, and will bind up that which was broken…", then: "Then: Healing from Church Hurt, at your own pace." },
-  { label: "Tempted", ref: "1 Corinthians 10:13", text: "There hath no temptation taken you but such as is common to man: but God is faithful, who will not suffer you to be tempted above that ye are able…", then: "Then: Temptation SOS, one step at a time." },
-  { label: "Lonely", ref: "Deuteronomy 31:8", text: "And the Lord, he it is that doth go before thee; he will be with thee, he will not fail thee, neither forsake thee: fear not, neither be dismayed.", then: "Then: a devotional for loneliness and a prayer you can pray today." },
-  { label: "Worn out", ref: "Matthew 11:28", text: "Come unto me, all ye that labour and are heavy laden, and I will give you rest.", then: "Then: rest, without guilt. Sabbath counts as walking with God." },
-  { label: "Far from God", ref: "James 4:8", text: "Draw nigh to God, and he will draw nigh to you.", then: "Then: one small step toward Him is enough." },
+  { label: "Anxious", ref: "Philippians 4:6", text: "In nothing be anxious, but in everything, by prayer and petition with thanksgiving, let your requests be made known to God.", then: "Then: a 3-minute Peace Mode, a devotional and a prayer for anxiety." },
+  { label: "Grieving", ref: "Psalm 147:3", text: "He heals the broken in heart, and binds up their wounds.", then: "Then: verses for loss, a reflection, and a 7-day walk through grief." },
+  { label: "Hurt by church", ref: "Ezekiel 34:16", text: "I will seek that which was lost, and will bring back that which was driven away, and will bind up that which was broken…", then: "Then: Healing from Church Hurt, at your own pace." },
+  { label: "Tempted", ref: "1 Corinthians 10:13", text: "No temptation has taken you except what is common to man. God is faithful, who will not allow you to be tempted above what you are able…", then: "Then: Temptation SOS, one step at a time." },
+  { label: "Lonely", ref: "Matthew 28:20", text: "Behold, I am with you always, even to the end of the age.", then: "Then: a devotional for loneliness and a prayer you can pray today." },
+  { label: "Worn out", ref: "Matthew 11:28", text: "Come to me, all you who labor and are heavily burdened, and I will give you rest.", then: "Then: rest, without guilt. Sabbath counts as walking with God." },
+  { label: "Far from God", ref: "James 4:8", text: "Draw near to God, and he will draw near to you.", then: "Then: one small step toward Him is enough." },
 ];
 const chipBox = document.querySelector(".chips");
 const verse = document.querySelector(".verse");
@@ -35,7 +35,7 @@ function showSit(i, animate) {
   const set = () => {
     verse.querySelector(".for").textContent = `When you're ${s.label.toLowerCase()}`;
     verse.querySelector("blockquote").textContent = `“${s.text}”`;
-    verse.querySelector("cite").textContent = `${s.ref} (KJV)`;
+    verse.querySelector("cite").textContent = `${s.ref} (WEB)`;
     verse.querySelector(".then").textContent = s.then;
     verse.classList.remove("swap");
   };
