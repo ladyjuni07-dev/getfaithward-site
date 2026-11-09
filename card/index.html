@@ -53,6 +53,7 @@
   <button class="open-btn" id="openBtn" type="button">Open your card</button>
 
   <footer class="after" id="after">
+    <section class="amen" id="amen" hidden aria-live="polite"></section>
     <section class="gift" id="gift" aria-label="Optional readings">
       <span class="gift-tag">Optional, if you'd like</span>
       <b></b>
@@ -71,21 +72,22 @@
     <button type="button" class="keep-btn" id="keep">Save this card</button>
     <p>Sent with care using Even Here.</p>
     <a href="../">What is Even Here?</a>
-    <p class="credit">Scripture quotations from The Authorized (King James) Version. Rights in the Authorized Version in the United Kingdom are vested in the Crown. Reproduced by permission of the Crown's patentee, Cambridge University Press.</p>
+    <p class="credit">Scripture quotations are from the World English Bible, which is in the public domain.</p>
   </footer>
 </main>
 <script src="card-gifts.js" defer></script>
 <script>
 // Short links (?c=CODE) keep texts tidy. The card is fetched with the public read-only key,
 // which can only open a card by its exact code. Older links with everything after "#" still work.
+window.FW_SB = { url: "https://pmjhctxeoudnytplumam.supabase.co", key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtamhjdHhlb3Vkbnl0cGx1bWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM0NjA4NDcsImV4cCI6MjEwOTAzNjg0N30.4C0kBhcfG7Mq6h-3CwZCPQQlOwBxUENsENnAdKdUWBk" };
 (function () {
   var code = (new URLSearchParams(location.search).get("c") || "").replace(/[^A-Za-z0-9]/g, "").slice(0, 10);
   function run() { var s = document.createElement("script"); s.src = "card.js"; document.body.appendChild(s); }
   function start() {
     if (!code || location.hash.length > 1) return run();
-    fetch("https://pmjhctxeoudnytplumam.supabase.co/rest/v1/rpc/get_shared_card", {
+    fetch(FW_SB.url + "/rest/v1/rpc/get_shared_card", {
       method: "POST",
-      headers: { "Content-Type": "application/json", apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtamhjdHhlb3Vkbnl0cGx1bWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM0NjA4NDcsImV4cCI6MjEwOTAzNjg0N30.4C0kBhcfG7Mq6h-3CwZCPQQlOwBxUENsENnAdKdUWBk", Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtamhjdHhlb3Vkbnl0cGx1bWFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM0NjA4NDcsImV4cCI6MjEwOTAzNjg0N30.4C0kBhcfG7Mq6h-3CwZCPQQlOwBxUENsENnAdKdUWBk" },
+      headers: { "Content-Type": "application/json", apikey: FW_SB.key, Authorization: "Bearer " + FW_SB.key },
       body: JSON.stringify({ p_id: code })
     }).then(function (r) { return r.ok ? r.json() : null; }).then(function (card) {
       if (card && typeof card === "object") {

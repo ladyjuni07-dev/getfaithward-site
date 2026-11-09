@@ -1,7 +1,7 @@
 // Even Here e-card viewer. A card arrives either packed in the link (after #) or, for short links,
 // fetched by its code in card.html and then unpacked the same way.
 // The person who receives it needs no app or account.
-// Occasions, verses and gifts come from card-gifts.js, generated from the public-domain KJV.
+// Occasions, verses and gifts come from card-gifts.js, generated from the public-domain World English Bible.
 const OCCASIONS = window.FW_OCCASIONS || {};
 
 function readCard() {
@@ -37,11 +37,38 @@ const showVerse = c.v === undefined ? tone === "faith" : !!c.v;
 const $ = (id) => document.getElementById(id);
 $("fromLine").innerHTML = `${from} sent you a card<small>Tap the seal to open it</small>`;
 $("envTo").textContent = `For ${to}`;
-$("art").src = `assets/cards/${occ.id}.jpg`;
+// Some cards have more than one design (added in 1.1). Unknown values fall back to the original art.
+const DESIGNS = { birthday: ["lamp", "lilies"] };
+const design = (DESIGNS[occ.id] || []).includes(c.a) ? `-${c.a}` : "";
+$("art").src = `assets/cards/${occ.id}${design}.jpg`;
 $("title").textContent = occ.title;
 $("to").textContent = `Dear ${to},`;
 $("msg").textContent = msg;
-if (showVerse) { $("verse").hidden = false; $("vtext").textContent = `“${verse.text}”`; $("vref").textContent = verse.ref; }
+// The sender's own verse (1.1) travels only as a reference, like "PSA 23:1-3". The words are read
+// from the same public-domain World English Bible files the app uses, so Scripture can't be changed.
+// If the verse can't be loaded, the card simply shows no verse rather than one the sender didn't pick.
+const OWN = /^([1-3]?[A-Z]{2,3}) (\d{1,3}):(\d{1,3})(?:-(\d{1,3}))?$/;
+const own = typeof c.cv === "string" && c.cv.match(OWN);
+function showVerseText(text, ref) { $("verse").hidden = false; $("vtext").textContent = `“${text}”`; $("vref").textContent = ref; }
+async function loadOwnVerse([, book, ch, a, e]) {
+  const base = new URL("../bible/web/", location.href);
+  const meta = await (await fetch(new URL("meta.json", base))).json();
+  const info = meta.books[book];
+  const from = +a, to = +(e || a), chapter = +ch;
+  if (!info || chapter < 1 || chapter > info[1] || from < 1 || to < from || to - from > 5) return;
+  const verses = (await (await fetch(new URL(`${book}.json`, base))).json())[chapter - 1] || [];
+  if (to > verses.length) return;
+  const parts = verses.slice(from - 1, to);
+  const title = book === "PSA" && from === 1 ? meta.psalmTitles[String(chapter)] : "";
+  if (title && parts[0].startsWith(title)) parts[0] = parts[0].slice(title.length);
+  const text = parts.join(" ").replace(/\s+/g, " ").trim();
+  if (!text) return;
+  const where = info[1] === 1 ? "" : `${chapter}:`;
+  const name = info[0] === "Psalms" ? "Psalm" : info[0];
+  showVerseText(text, `${name} ${where}${from}${to > from ? `-${to}` : ""} (WEB)`);
+}
+if (showVerse && own) loadOwnVerse(own).catch(() => {});
+else if (showVerse) showVerseText(verse.text, verse.ref);
 $("sig").textContent = `With love, ${from}`;
 // Optional prayer. "fw" means Even Here's suggested words, unchanged; "own" means the sender wrote or edited it.
 const prayer = clean(c.pr, 1200);
@@ -217,3 +244,72 @@ $("keep").addEventListener("click", async () => {
   } catch { btn.textContent = "Save this card"; }
   finally { btn.disabled = false; setTimeout(() => { btn.textContent = "Save this card"; }, 2500); }
 });
+
+// Amen back (1.1): the person who opens a short-link card can send ONE reply from a fixed list.
+// Nothing typed, no account. Opening the card is never reported; only a tapped reply is saved.
+(function amenBack() {
+  const box = document.getElementById("amen");
+  const sb = window.FW_SB;
+  const code = (new URLSearchParams(location.search).get("c") || "").replace(/[^A-Za-z0-9]/g, "").slice(0, 10);
+  if (!box || !sb || !card || code.length !== 10) return;
+  const HEART = `<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="#C8463F"/></svg>`;
+  const HEARTS = `<span class="hearts">${HEART}${HEART}</span>`;
+  const WORDS = { amen: "Amen", praying: "I'm praying for you too", thanks: "Thank you, I appreciate it", thinking: "Thank you for thinking of me" };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+  const name = esc(from);
+  const store = `even-here-replied-${code}`;
+  const rpc = (fn, body) => fetch(`${sb.url}/rest/v1/rpc/${fn}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", apikey: sb.key, Authorization: `Bearer ${sb.key}` },
+    body: JSON.stringify(body),
+  }).then((r) => (r.ok ? r.json() : Promise.reject(r.status)));
+
+  function showDone(reply) {
+    const said = reply === "hearts" ? HEARTS : `“${esc(WORDS[reply] || "")}”`;
+    box.innerHTML = `<div class="done"><div class="check"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0F3B2E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h2>Sent to ${name}</h2><p class="said">${said}</p><p class="sub" style="margin:8px 0 0">${name} will see it in Even Here. Each card gets one reply.</p></div>`;
+    box.hidden = false;
+  }
+  function showAsk() {
+    // Gentle cards are for anyone, including people who may not believe, so they skip "Amen" and "praying".
+    const faith = tone === "faith";
+    box.innerHTML = `<h2>Send ${name} a reply?</h2><p class="sub">One tap, if you'd like. You don't have to.</p>
+      <div class="opts">
+        <div class="row">${faith ? `<button type="button" class="primary" data-r="amen">Amen</button>` : ""}<button type="button" class="heart${faith ? "" : " solo"}" data-r="hearts" aria-label="Send two red hearts"${faith ? "" : ' style="width:100%"'}>${HEARTS}</button></div>
+        ${faith ? `<button type="button" data-r="praying">I'm praying for you too</button>` : ""}
+        <button type="button" data-r="thanks">Thank you, I appreciate it</button>
+        <button type="button" data-r="thinking">Thank you for thinking of me</button>
+      </div>
+      <p class="fine">${name} will only see the reply you tap. Opening this card is never reported to anyone.</p>`;
+    box.hidden = false;
+    box.querySelectorAll("button[data-r]").forEach((b) => b.addEventListener("click", () => send(b.dataset.r)));
+  }
+  function send(reply) {
+    box.querySelectorAll("button").forEach((b) => { b.disabled = true; });
+    box.querySelector(".err")?.remove();
+    rpc("reply_to_card", { p_id: code, p_reply: reply }).then((res) => {
+      if (res === "sent") {
+        try { localStorage.setItem(store, reply); } catch {}
+        showDone(reply);
+        // Lets the sender's phone know, if they turned on reply notifications. Sends at most once.
+        fetch(`${sb.url}/functions/v1/card-reply-push`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", apikey: sb.key, Authorization: `Bearer ${sb.key}` },
+          body: JSON.stringify({ code }),
+          keepalive: true,
+        }).catch(() => {});
+      }
+      else if (res === "already") { box.innerHTML = `<h2>A reply was already sent</h2><p class="sub" style="margin-bottom:0">Each card gets one reply.</p>`; }
+      else box.hidden = true;
+    }).catch(() => {
+      box.querySelectorAll("button").forEach((b) => { b.disabled = false; });
+      box.insertAdjacentHTML("beforeend", `<p class="err">Couldn't send just now. Check your connection and try again.</p>`);
+    });
+  }
+  let mine = null;
+  try { mine = localStorage.getItem(store); } catch {}
+  rpc("card_reply_state", { p_id: code }).then((state) => {
+    if (state === "open") showAsk();
+    else if (state === "replied" && mine) showDone(mine);
+  }).catch(() => {});
+})();

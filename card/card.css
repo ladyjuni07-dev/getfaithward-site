@@ -99,3 +99,20 @@ img { display: block; max-width: 100%; height: auto; }
 .bfly .wr { transform-origin: left center; }
 @keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(.25); } }
 @media (prefers-reduced-motion: reduce) { .flutter-layer { display: none; } }
+
+/* Amen back (1.1): one optional tap-to-reply. */
+.amen { margin: 0 auto 18px; padding: 20px 18px 18px; border-radius: 16px; background: var(--paper); color: var(--ink); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.18); max-width: 420px; width: 100%; }
+.amen h2 { margin: 0; font: 700 1.35rem/1.2 var(--serif); color: var(--forest); }
+.amen .sub { margin: 6px 0 14px; font-size: 15px; line-height: 1.5; color: var(--muted); }
+.amen .opts { display: flex; flex-direction: column; gap: 10px; }
+.amen .row { display: flex; gap: 10px; }
+.amen button { font: 600 16px var(--sans); padding: 14px 12px; min-height: 50px; border-radius: 999px; border: 2px solid var(--forest); background: #fff; color: var(--forest); cursor: pointer; }
+.amen button.primary { background: var(--forest); color: #fff; flex: 1; }
+.amen button.heart { width: 92px; padding: 0; display: grid; place-items: center; border-color: #C8463F; background: #FDF0EE; }
+.amen button:disabled { opacity: .55; cursor: default; }
+.amen .hearts { display: inline-flex; gap: 1px; vertical-align: middle; }
+.amen .fine { margin: 12px 0 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+.amen .err { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: #a3322b; }
+.amen .done { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.amen .check { width: 52px; height: 52px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; }
+.amen .said { font: italic 500 17px/1.5 var(--serif); color: var(--forest); background: #eef2ea; border-left: 3px solid var(--sage); padding: 10px 14px; border-radius: 10px; margin: 6px 0 0; }
