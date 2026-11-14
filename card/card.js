@@ -342,6 +342,8 @@ $("keep").addEventListener("click", async () => {
         <div class="help" hidden role="alert">
           <strong>You matter, and you don't have to carry this alone.</strong>
           If you're thinking about ending your life or hurting yourself, call or text <a href="tel:988">988</a> now to talk with someone (US, free, any time). If you're in danger, call <a href="tel:911">911</a>.
+          <span class="trusted">You can also reach out to a pastor, family member or friend you trust. Ask them to stay with you and help you call for help, or to make the call for you.
+          <a class="trusted-btn" href="sms:&body=${encodeURIComponent("I'm not okay right now. Can you call me or come be with me, and help me reach someone who can help?")}">Text someone now</a></span>
         </div>
         <div class="row"><button type="button" data-cancel>Back</button><button type="button" class="primary" data-send disabled>Send reply</button></div>
       </div>
