@@ -113,6 +113,18 @@ img { display: block; max-width: 100%; height: auto; }
 .amen.preview .opts { opacity: .9; }
 .amen .hearts { display: inline-flex; gap: 1px; vertical-align: middle; }
 .amen .fine { margin: 12px 0 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+.amen [hidden] { display: none !important; }
+.amen button.write { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-style: dashed; background: transparent; }
+.amen .compose { text-align: left; }
+.amen .compose .lbl { display: block; font: 600 15px var(--sans); color: var(--forest); margin: 0 0 6px; }
+.amen textarea { width: 100%; box-sizing: border-box; font: 17px/1.45 var(--sans); color: var(--ink); background: #fff; border: 2px solid var(--forest); border-radius: 14px; padding: 12px 14px; resize: vertical; min-height: 110px; }
+.amen textarea:focus { outline: 3px solid var(--gold); outline-offset: 1px; }
+.amen .count { text-align: right; font-size: 13px; color: var(--muted); margin: 4px 2px 10px; }
+.amen .help { background: #fff; border: 2px solid #a3322b; border-radius: 12px; padding: 10px 12px; margin: 0 0 12px; font-size: 15px; line-height: 1.45; color: var(--ink); }
+.amen .help strong { display: block; color: #a3322b; margin-bottom: 4px; }
+.amen .help a { color: #a3322b; font-weight: 700; }
+.amen .compose .row button { flex: 1; }
+.amen .said.note { font-style: normal; white-space: pre-line; overflow-wrap: anywhere; text-align: left; }
 .amen .err { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: #a3322b; }
 .amen .done { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .amen .check { width: 52px; height: 52px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; }

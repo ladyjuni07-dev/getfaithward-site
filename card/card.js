@@ -248,9 +248,10 @@ $("keep").addEventListener("click", async () => {
   finally { btn.disabled = false; setTimeout(() => { btn.textContent = "Save this card"; }, 2500); }
 });
 
-// Amen back (1.1): the person who opens a short-link card can send ONE reply from a fixed list.
-// Nothing typed, no account. Opening the card is never reported; only a tapped reply is saved.
-(function amenBack() {
+// Card replies (1.1): the person who opens a short-link card can send ONE reply, a short choice or a few
+// words they write (up to 300 characters). No account. Opening the card is never reported; only a sent
+// reply is saved, and only the sender's app can read it. Replies are never sent to AI.
+(function cardReply() {
   const box = document.getElementById("amen");
   const sb = window.FW_SB;
   const code = (new URLSearchParams(location.search).get("c") || "").replace(/[^A-Za-z0-9]/g, "").slice(0, 10);
@@ -260,7 +261,14 @@ $("keep").addEventListener("click", async () => {
   if (!box || !card || (!preview && (!sb || code.length !== 10))) return;
   const HEART = `<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="#C8463F"/></svg>`;
   const HEARTS = `<span class="hearts">${HEART}${HEART}</span>`;
-  const WORDS = { amen: "Amen", praying: "I'm praying for you too", thanks: "Thank you, I appreciate it", thinking: "Thank you for thinking of me" };
+  const PEN = `<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>`;
+  const WORDS = { amen: "Amen", praying: "I'm praying for you too", thanks: "Thank you", appreciate: "I appreciate you", thinking: "Thank you for thinking of me" };
+  const MAX = 300;
+  // Same crisis words the app listens for. If they show up, 988 comes first.
+  const CRISIS = [/\bsuicid/, /\bkill(ing)? my ?self\b/, /\bend my life\b/, /\btake my (own )?life\b/, /\bwant(ed)? to die\b/, /\bwish i (was|were) dead\b/,
+    /\bdon'?t want to (live|be alive|be here)( anymore)?\b/, /\bno reason to live\b/, /\bbetter off (dead|without me)\b/, /\bself[- ]?harm/, /\bcut(ting)? my ?self\b/,
+    /\bhurt(ing)? my ?self\b/, /\bdon'?t want to wake up\b/];
+  const crisis = (t) => { const n = " " + String(t).toLowerCase().replace(/[\u2019']/g, "'").replace(/[^a-z0-9' -]+/g, " ").replace(/\s+/g, " ") + " "; return CRISIS.some((r) => r.test(n)); };
   const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
   const name = esc(from);
   const store = `even-here-replied-${code}`;
@@ -270,49 +278,64 @@ $("keep").addEventListener("click", async () => {
     body: JSON.stringify(body),
   }).then((r) => (r.ok ? r.json() : Promise.reject(r.status)));
 
-  function showDone(reply) {
-    const said = reply === "hearts" ? HEARTS : `“${esc(WORDS[reply] || "")}”`;
+  function showDone(reply, note) {
+    const said = reply === "hearts" ? HEARTS : reply === "note" ? `“${esc(note || "")}”` : `“${esc(WORDS[reply] || "")}”`;
     box.innerHTML = `<div class="done"><div class="check"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0F3B2E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h2>Sent to ${name}</h2><p class="said">${said}</p><p class="sub" style="margin:8px 0 0">${name} will see it in Even Here. Each card gets one reply.</p></div>`;
+      <h2>Sent to ${name}</h2><p class="said${reply === "note" ? " note" : ""}">${said}</p><p class="sub" style="margin:8px 0 0">${name} will see it in Even Here. Each card gets one reply.</p></div>`;
     box.hidden = false;
   }
   function showAsk(isPreview = false) {
-    // Gentle cards are for anyone, including people who may not believe, so they skip "Amen" and "praying".
+    // Gentle cards are for anyone, including people who may not believe, so they skip "praying".
     const faith = tone === "faith";
     const head = isPreview
-      ? `<h2>${esc(to)} can send you a reply</h2><p class="sub">This is your preview. Only ${esc(to)} can tap these, from the card you send.</p>`
-      : `<h2>Send ${name} a reply?</h2><p class="sub">One tap, if you'd like. You don't have to.</p>`;
+      ? `<h2>${esc(to)} can send you a reply</h2><p class="sub">This is your preview. Only ${esc(to)} can tap these or write back, from the card you send.</p>`
+      : `<h2>Send ${name} a reply?</h2><p class="sub">Tap one, or write your own. You don't have to.</p>`;
     box.innerHTML = `${head}
       <div class="opts">
-        <div class="row">${faith ? `<button type="button" class="primary" data-r="amen">Amen</button>` : ""}<button type="button" class="heart${faith ? "" : " solo"}" data-r="hearts" aria-label="Send two red hearts"${faith ? "" : ' style="width:100%"'}>${HEARTS}</button></div>
+        <div class="row"><button type="button" class="primary" data-r="thanks">Thank you</button><button type="button" class="heart" data-r="hearts" aria-label="Send two red hearts">${HEARTS}</button></div>
+        <button type="button" data-r="appreciate">I appreciate you</button>
         ${faith ? `<button type="button" data-r="praying">I'm praying for you too</button>` : ""}
-        <button type="button" data-r="thanks">Thank you, I appreciate it</button>
-        <button type="button" data-r="thinking">Thank you for thinking of me</button>
+        <button type="button" class="write" data-w>${PEN}<span>Write your own reply</span></button>
       </div>
-      ${isPreview ? "" : `<p class="fine">${name} will only see the reply you tap. Opening this card is never reported to anyone.</p>`}`;
+      <div class="compose" hidden>
+        <label for="reply-note" class="lbl">Your reply to ${name}</label>
+        <textarea id="reply-note" rows="4" maxlength="${MAX}" placeholder="Say it in your own words"></textarea>
+        <div class="count" aria-live="polite"><span>0</span> / ${MAX}</div>
+        <div class="help" hidden role="alert">
+          <strong>You matter, and you don't have to carry this alone.</strong>
+          If you're thinking about ending your life or hurting yourself, call or text <a href="tel:988">988</a> now to talk with someone (US, free, any time). If you're in danger, call <a href="tel:911">911</a>.
+        </div>
+        <div class="row"><button type="button" data-cancel>Back</button><button type="button" class="primary" data-send disabled>Send reply</button></div>
+      </div>
+      ${isPreview ? "" : `<p class="fine">${name} will only see the reply you send. Opening this card is never reported to anyone.</p>`}`;
     box.hidden = false;
     if (isPreview) { box.classList.add("preview"); box.querySelectorAll("button").forEach((b) => { b.disabled = true; b.setAttribute("aria-disabled", "true"); }); return; }
+    const opts = box.querySelector(".opts"), compose = box.querySelector(".compose"), ta = box.querySelector("textarea");
+    const count = box.querySelector(".count span"), help = box.querySelector(".help"), sendBtn = box.querySelector("[data-send]");
     box.querySelectorAll("button[data-r]").forEach((b) => b.addEventListener("click", () => send(b.dataset.r)));
+    box.querySelector("[data-w]").addEventListener("click", () => { opts.hidden = true; compose.hidden = false; ta.focus(); });
+    box.querySelector("[data-cancel]").addEventListener("click", () => { compose.hidden = true; opts.hidden = false; box.querySelector(".err")?.remove(); });
+    ta.addEventListener("input", () => {
+      count.textContent = String(ta.value.length);
+      sendBtn.disabled = !ta.value.trim();
+      help.hidden = !crisis(ta.value);
+    });
+    sendBtn.addEventListener("click", () => send("note", ta.value.trim().slice(0, MAX)));
   }
-  function send(reply) {
+  function send(reply, note) {
     box.querySelectorAll("button").forEach((b) => { b.disabled = true; });
     box.querySelector(".err")?.remove();
-    rpc("reply_to_card", { p_id: code, p_reply: reply }).then((res) => {
+    rpc("reply_to_card_v2", { p_id: code, p_reply: reply, p_note: reply === "note" ? note : null }).then((res) => {
       if (res === "sent") {
-        try { localStorage.setItem(store, reply); } catch {}
-        showDone(reply);
-        // Lets the sender's phone know, if they turned on reply notifications. Sends at most once.
-        fetch(`${sb.url}/functions/v1/card-reply-push`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", apikey: sb.key, Authorization: `Bearer ${sb.key}` },
-          body: JSON.stringify({ code }),
-          keepalive: true,
-        }).catch(() => {});
+        try { localStorage.setItem(store, reply === "note" ? `note:${note}` : reply); } catch {}
+        showDone(reply, note);
       }
       else if (res === "already") { box.innerHTML = `<h2>A reply was already sent</h2><p class="sub" style="margin-bottom:0">Each card gets one reply.</p>`; }
       else box.hidden = true;
     }).catch(() => {
       box.querySelectorAll("button").forEach((b) => { b.disabled = false; });
+      const sendBtn = box.querySelector("[data-send]"), ta = box.querySelector("textarea");
+      if (sendBtn && ta) sendBtn.disabled = !ta.value.trim();
       box.insertAdjacentHTML("beforeend", `<p class="err">Couldn't send just now. Check your connection and try again.</p>`);
     });
   }
@@ -321,6 +344,6 @@ $("keep").addEventListener("click", async () => {
   try { mine = localStorage.getItem(store); } catch {}
   rpc("card_reply_state", { p_id: code }).then((state) => {
     if (state === "open") showAsk();
-    else if (state === "replied" && mine) showDone(mine);
+    else if (state === "replied" && mine) { if (mine.startsWith("note:")) showDone("note", mine.slice(5)); else showDone(mine); }
   }).catch(() => {});
 })();
