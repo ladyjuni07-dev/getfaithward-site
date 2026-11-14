@@ -100,13 +100,22 @@ const SND = "assets/sounds/";
 const MUSIC = { christmas: "music-xmas" };
 const musicFor = (id) => MUSIC[id] || (JOYFUL.includes(id) ? "music-joy" : "music-gentle");
 let audio = null, master = null;
+const PHONE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 let soundOn = true;
 try { soundOn = localStorage.getItem("even-here-card-sound") !== "off"; } catch {}
 function wingAudio() {
   try {
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return null;
-    if (!audio) { audio = new AC(); master = audio.createGain(); master.gain.value = soundOn ? 1 : 0; master.connect(audio.destination); }
+    if (!audio) {
+      audio = new AC(); master = audio.createGain(); master.gain.value = soundOn ? 1 : 0;
+      // A gentle limiter evens out the sounds, then phone speakers get a boost so the seal, the card and the
+      // wings sound full on an iPhone instead of thin. Computers stay at normal level.
+      const lim = audio.createDynamicsCompressor();
+      lim.threshold.value = -24; lim.knee.value = 6; lim.ratio.value = 12; lim.attack.value = 0.003; lim.release.value = 0.2;
+      const boost = audio.createGain(); boost.gain.value = PHONE ? 1.2 : 0.8;
+      master.connect(lim); lim.connect(boost); boost.connect(audio.destination);
+    }
     if (audio.state === "suspended") audio.resume();
     return audio;
   } catch { return null; }
@@ -187,7 +196,7 @@ function flutter(ctx, t0) {
       play(ctx, t0, "wings", {
         at: (350 + i * (joyful ? 70 : 260)) / 1000, dur: dur / 1000 * 0.85,
         rate: joyful ? 1.2 + Math.random() * 0.25 : 0.92 + Math.random() * 0.12,
-        gain: joyful ? 0.55 : 0.9, pan: Math.max(-1, Math.min(1, dx / 400)), panTo: Math.max(-1, Math.min(1, dx / 180)),
+        gain: joyful ? 0.7 : 1, pan: Math.max(-1, Math.min(1, dx / 400)), panTo: Math.max(-1, Math.min(1, dx / 180)),
       });
     }
   }
@@ -205,7 +214,7 @@ function open() {
     play(ctx, t0, "seal", { at: 0, gain: 1 });
     play(ctx, t0, "flap", { at: 0.12, gain: 0.8 });
     play(ctx, t0, "slide", { at: 0.5, gain: 0.95 });
-    play(ctx, t0, musicFor(occ.id), { at: 1.1, gain: 0.55, lateOk: true });
+    play(ctx, t0, musicFor(occ.id), { at: 1.1, gain: 0.6, lateOk: true });
   }
   setTimeout(() => flutter(ctx, t0), 350);
   setTimeout(() => { stage.classList.add("revealed"); window.scrollTo({ top: 0, behavior: "smooth" }); }, 1500);
