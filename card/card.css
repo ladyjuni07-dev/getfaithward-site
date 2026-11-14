@@ -110,6 +110,7 @@ img { display: block; max-width: 100%; height: auto; }
 .amen button.primary { background: var(--forest); color: #fff; flex: 1; }
 .amen button.heart { width: 92px; padding: 0; display: grid; place-items: center; border-color: #C8463F; background: #FDF0EE; }
 .amen button:disabled { opacity: .55; cursor: default; }
+.amen.preview .opts { opacity: .9; }
 .amen .hearts { display: inline-flex; gap: 1px; vertical-align: middle; }
 .amen .fine { margin: 12px 0 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
 .amen .err { margin: 10px 0 0; font-size: 14px; font-weight: 600; color: #a3322b; }

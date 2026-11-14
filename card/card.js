@@ -251,7 +251,10 @@ $("keep").addEventListener("click", async () => {
   const box = document.getElementById("amen");
   const sb = window.FW_SB;
   const code = (new URLSearchParams(location.search).get("c") || "").replace(/[^A-Za-z0-9]/g, "").slice(0, 10);
-  if (!box || !sb || !card || code.length !== 10) return;
+  // "See it the way they will" in the app adds ?preview=1 to a card link that has no code,
+  // so the sender sees the reply buttons grayed out instead of nothing.
+  const preview = code.length !== 10 && new URLSearchParams(location.search).has("preview");
+  if (!box || !card || (!preview && (!sb || code.length !== 10))) return;
   const HEART = `<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="#C8463F"/></svg>`;
   const HEARTS = `<span class="hearts">${HEART}${HEART}</span>`;
   const WORDS = { amen: "Amen", praying: "I'm praying for you too", thanks: "Thank you, I appreciate it", thinking: "Thank you for thinking of me" };
@@ -270,18 +273,22 @@ $("keep").addEventListener("click", async () => {
       <h2>Sent to ${name}</h2><p class="said">${said}</p><p class="sub" style="margin:8px 0 0">${name} will see it in Even Here. Each card gets one reply.</p></div>`;
     box.hidden = false;
   }
-  function showAsk() {
+  function showAsk(isPreview = false) {
     // Gentle cards are for anyone, including people who may not believe, so they skip "Amen" and "praying".
     const faith = tone === "faith";
-    box.innerHTML = `<h2>Send ${name} a reply?</h2><p class="sub">One tap, if you'd like. You don't have to.</p>
+    const head = isPreview
+      ? `<h2>${esc(to)} can send you a reply</h2><p class="sub">This is your preview. Only ${esc(to)} can tap these, from the card you send.</p>`
+      : `<h2>Send ${name} a reply?</h2><p class="sub">One tap, if you'd like. You don't have to.</p>`;
+    box.innerHTML = `${head}
       <div class="opts">
         <div class="row">${faith ? `<button type="button" class="primary" data-r="amen">Amen</button>` : ""}<button type="button" class="heart${faith ? "" : " solo"}" data-r="hearts" aria-label="Send two red hearts"${faith ? "" : ' style="width:100%"'}>${HEARTS}</button></div>
         ${faith ? `<button type="button" data-r="praying">I'm praying for you too</button>` : ""}
         <button type="button" data-r="thanks">Thank you, I appreciate it</button>
         <button type="button" data-r="thinking">Thank you for thinking of me</button>
       </div>
-      <p class="fine">${name} will only see the reply you tap. Opening this card is never reported to anyone.</p>`;
+      ${isPreview ? "" : `<p class="fine">${name} will only see the reply you tap. Opening this card is never reported to anyone.</p>`}`;
     box.hidden = false;
+    if (isPreview) { box.classList.add("preview"); box.querySelectorAll("button").forEach((b) => { b.disabled = true; b.setAttribute("aria-disabled", "true"); }); return; }
     box.querySelectorAll("button[data-r]").forEach((b) => b.addEventListener("click", () => send(b.dataset.r)));
   }
   function send(reply) {
@@ -306,6 +313,7 @@ $("keep").addEventListener("click", async () => {
       box.insertAdjacentHTML("beforeend", `<p class="err">Couldn't send just now. Check your connection and try again.</p>`);
     });
   }
+  if (preview) { showAsk(true); return; }
   let mine = null;
   try { mine = localStorage.getItem(store); } catch {}
   rpc("card_reply_state", { p_id: code }).then((state) => {
