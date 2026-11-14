@@ -93,53 +93,72 @@ const WING = ["#D4AF37", "#B8D0B0", "#F7F4EA", "#E9C96A", "#8FB394"];
 function butterfly(color) {
   return `<svg class="bfly" viewBox="0 0 34 30" aria-hidden="true"><g class="wl"><path d="M17 15 C10 1, 1 3, 3 11 C4 16, 11 17, 17 15 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/><path d="M17 16 C11 18, 5 22, 8 27 C11 30, 16 23, 17 16 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/></g><g class="wr"><path d="M17 15 C24 1, 33 3, 31 11 C30 16, 23 17, 17 15 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/><path d="M17 16 C23 18, 29 22, 26 27 C23 30, 18 23, 17 16 Z" fill="${color}" stroke="#0F3B2E" stroke-width="1.2"/></g><rect x="16" y="9" width="2" height="15" rx="1" fill="#0F3B2E"/></svg>`;
 }
-// Wing sounds: soft, papery flaps made in the browser (no audio file). Each butterfly flaps at the
-// same speed its wings move on screen, drifting left or right with it, and fades as it flies off.
-// Plays only after the person taps to open the card, and only when butterflies appear.
-let audio = null;
+// Sounds: real recorded sounds for each thing that moves (the wax seal, the envelope flap, the card
+// sliding out, each butterfly) and a short piece of music matched to the card. The files are original,
+// made for Even Here. Nothing plays until the person taps to open, and a Sound button turns it all off.
+const SND = "assets/sounds/";
+const MUSIC = { christmas: "music-xmas" };
+const musicFor = (id) => MUSIC[id] || (JOYFUL.includes(id) ? "music-joy" : "music-gentle");
+let audio = null, master = null;
+let soundOn = true;
+try { soundOn = localStorage.getItem("even-here-card-sound") !== "off"; } catch {}
 function wingAudio() {
   try {
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return null;
-    if (!audio) audio = new AC();
+    if (!audio) { audio = new AC(); master = audio.createGain(); master.gain.value = soundOn ? 1 : 0; master.connect(audio.destination); }
     if (audio.state === "suspended") audio.resume();
     return audio;
   } catch { return null; }
 }
-let noiseBuf = null;
-function noise(ctx) {
-  if (noiseBuf) return noiseBuf;
-  noiseBuf = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
-  const d = noiseBuf.getChannelData(0);
-  let last = 0;
-  for (let i = 0; i < d.length; i++) { last = 0.6 * last + 0.4 * (Math.random() * 2 - 1); d[i] = last; }
-  return noiseBuf;
+// Fetch the files early so they're ready the moment the card opens; decode once the tap allows audio.
+const raw = {};
+function prefetch(name) { if (!raw[name]) raw[name] = fetch(SND + name + ".mp3").then((r) => (r.ok ? r.arrayBuffer() : null)).catch(() => null); return raw[name]; }
+const bufs = {};
+function buffer(ctx, name) {
+  if (!bufs[name]) bufs[name] = prefetch(name).then((ab) => (ab ? new Promise((ok) => ctx.decodeAudioData(ab.slice(0), ok, () => ok(null))) : null));
+  return bufs[name];
 }
-function wingSound(ctx, { start, dur, flap, pan, loud }) {
-  const out = ctx.createGain(); out.gain.value = 0;
-  const p = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-  if (p) { p.pan.setValueAtTime(pan * 0.3, start); p.pan.linearRampToValueAtTime(pan, start + dur); p.connect(ctx.destination); out.connect(p); }
-  else out.connect(ctx.destination);
-  out.gain.setValueAtTime(0, start);
-  out.gain.linearRampToValueAtTime(loud, start + 0.12);
-  out.gain.setValueAtTime(loud, start + dur * 0.45);
-  out.gain.linearRampToValueAtTime(0, start + dur);
-  const half = flap / 2;
-  for (let t = start; t < start + dur; t += half * (0.9 + Math.random() * 0.2)) {
-    const down = Math.round((t - start) / half) % 2 === 0; // downstroke is fuller, upstroke lighter
-    const src = ctx.createBufferSource(); src.buffer = noise(ctx);
-    const bp = ctx.createBiquadFilter(); bp.type = "bandpass";
-    bp.frequency.value = (down ? 900 : 1500) + Math.random() * 500; bp.Q.value = 0.9;
-    const g = ctx.createGain(); const len = Math.min(0.09, half * 0.8);
-    g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(down ? 1 : 0.45, t + 0.006);
-    g.gain.exponentialRampToValueAtTime(0.001, t + len);
-    src.connect(bp); bp.connect(g); g.connect(out);
-    src.start(t, Math.random() * 0.8, len + 0.02);
-  }
-}
+if (card) ["seal", "flap", "slide", musicFor(occ.id)].concat(NONE.includes(occ.id) ? [] : ["wings"]).forEach(prefetch);
 
-function flutter(ctx) {
+// Play a sound `at` seconds after the tap. If it isn't loaded in time, sound effects are skipped
+// (so they never play out of step with what's on screen) but music still starts.
+function play(ctx, t0, name, { at = 0, gain = 1, rate = 1, pan = 0, panTo = null, dur = null, lateOk = false } = {}) {
+  buffer(ctx, name).then((buf) => {
+    if (!buf) return;
+    let start = t0 + at;
+    if (start < ctx.currentTime) { if (!lateOk && ctx.currentTime - start > 0.15) return; start = ctx.currentTime + 0.02; }
+    const src = ctx.createBufferSource(); src.buffer = buf; src.playbackRate.value = rate;
+    const g = ctx.createGain(); g.gain.value = gain;
+    let node = g;
+    if (ctx.createStereoPanner) {
+      const p = ctx.createStereoPanner(); p.pan.setValueAtTime(pan, start);
+      if (panTo !== null) p.pan.linearRampToValueAtTime(panTo, start + (dur || buf.duration / rate));
+      g.connect(p); node = p;
+    }
+    node.connect(master);
+    src.connect(g);
+    if (dur) { g.gain.setValueAtTime(gain, start + dur * 0.6); g.gain.linearRampToValueAtTime(0, start + dur); }
+    src.start(start, 0, dur ? dur * rate + 0.05 : undefined);
+  });
+}
+function soundButton() {
+  if (document.getElementById("soundBtn")) return;
+  const btn = document.createElement("button");
+  btn.type = "button"; btn.id = "soundBtn"; btn.className = "sound-btn";
+  const label = () => { btn.textContent = soundOn ? "Sound on" : "Sound off"; btn.setAttribute("aria-pressed", String(soundOn)); };
+  label();
+  btn.addEventListener("click", () => {
+    soundOn = !soundOn; label();
+    try { localStorage.setItem("even-here-card-sound", soundOn ? "on" : "off"); } catch {}
+    if (master && audio) master.gain.setTargetAtTime(soundOn ? 1 : 0, audio.currentTime, 0.05);
+  });
+  document.body.appendChild(btn);
+}
+// Pause sound if they switch away, and pick up again when they come back.
+document.addEventListener("visibilitychange", () => { if (!audio) return; if (document.hidden) audio.suspend(); else audio.resume(); });
+
+function flutter(ctx, t0) {
   if (NONE.includes(occ.id)) return;
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const joyful = JOYFUL.includes(occ.id);
@@ -162,11 +181,13 @@ function flutter(ctx) {
       { transform: `translate(${x0 + dx * 0.7 - sway}px, ${y0 + dy * 0.7}px) scale(${scale}) rotate(${-tilt / 2}deg)`, opacity: 1, offset: 0.7 },
       { transform: `translate(${x0 + dx}px, ${y0 + dy}px) scale(${scale * 0.9}) rotate(${tilt / 2}deg)`, opacity: 0 },
     ], { duration: dur, delay: i * (joyful ? 70 : 260), easing: "ease-out", fill: "both" });
-    if (ctx) {
-      const flapS = parseFloat(el.style.getPropertyValue("--flap")) * 2; // one full wingbeat
-      wingSound(ctx, {
-        start: ctx.currentTime + 0.05 + i * (joyful ? 0.07 : 0.26), dur: dur / 1000 * 0.8, flap: flapS,
-        pan: Math.max(-1, Math.min(1, dx / 200)), loud: joyful ? 0.45 : 0.8,
+    // Each butterfly gets its own real wing sound, panned the way it flies. Joyful cards have quicker
+    // wings; at most six play at once so a flurry stays clear instead of turning into noise.
+    if (ctx && i < (joyful ? 6 : count)) {
+      play(ctx, t0, "wings", {
+        at: (350 + i * (joyful ? 70 : 260)) / 1000, dur: dur / 1000 * 0.85,
+        rate: joyful ? 1.2 + Math.random() * 0.25 : 0.92 + Math.random() * 0.12,
+        gain: joyful ? 0.55 : 0.9, pan: Math.max(-1, Math.min(1, dx / 400)), panTo: Math.max(-1, Math.min(1, dx / 180)),
       });
     }
   }
@@ -177,8 +198,16 @@ const stage = $("stage");
 function open() {
   if (stage.classList.contains("opened")) return;
   stage.classList.add("opened");
-  const ctx = NONE.includes(occ.id) ? null : wingAudio(); // started inside the tap so phones allow it
-  setTimeout(() => flutter(ctx), 350);
+  const ctx = card ? wingAudio() : null; // started inside the tap so phones allow it
+  const t0 = ctx ? ctx.currentTime : 0;
+  if (ctx) {
+    soundButton();
+    play(ctx, t0, "seal", { at: 0, gain: 1 });
+    play(ctx, t0, "flap", { at: 0.12, gain: 0.8 });
+    play(ctx, t0, "slide", { at: 0.5, gain: 0.95 });
+    play(ctx, t0, musicFor(occ.id), { at: 1.1, gain: 0.55, lateOk: true });
+  }
+  setTimeout(() => flutter(ctx, t0), 350);
   setTimeout(() => { stage.classList.add("revealed"); window.scrollTo({ top: 0, behavior: "smooth" }); }, 1500);
 }
 $("open").addEventListener("click", open);
