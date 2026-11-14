@@ -42,7 +42,10 @@ const DESIGNS = { birthday: ["lamp", "lilies"] };
 const design = (DESIGNS[occ.id] || []).includes(c.a) ? `-${c.a}` : "";
 $("art").src = `assets/cards/${occ.id}${design}.jpg`;
 $("title").textContent = occ.title;
-$("to").textContent = `Dear ${to},`;
+// Greeting (1.1): the sender can pick "Hi Maya,", write their own, or leave it off. Older cards say "Dear".
+const greeting = typeof c.gr === "string" ? clean(c.gr, 60) : `Dear ${to},`;
+$("to").textContent = greeting;
+$("to").hidden = !greeting;
 $("msg").textContent = msg;
 // The sender's own verse (1.1) travels only as a reference, like "PSA 23:1-3". The words are read
 // from the same public-domain World English Bible files the app uses, so Scripture can't be changed.
@@ -228,7 +231,7 @@ $("keep").addEventListener("click", async () => {
     if (img.complete && img.naturalWidth) { const s = Math.min(1000 / img.naturalWidth, 600 / img.naturalHeight); const w = img.naturalWidth * s, h = img.naturalHeight * s; x.drawImage(img, (W - w) / 2, 20 + (600 - h) / 2, w, h); }
     x.textAlign = "center"; x.fillStyle = "#0F3B2E"; x.font = "700 64px 'Playfair Display', Georgia, serif";
     let y = wrap(x, occ.title, W / 2, 740, 920, 76);
-    x.fillStyle = "#8a6a12"; x.font = "600 34px Inter, sans-serif"; x.fillText(`Dear ${to},`, W / 2, y + 10); y += 70;
+    x.fillStyle = "#8a6a12"; x.font = "600 34px Inter, sans-serif"; if (greeting) { x.fillText(greeting, W / 2, y + 10); y += 70; } else y += 20;
     x.fillStyle = "#14231d"; x.font = "400 36px Inter, sans-serif"; y = wrap(x, msg, W / 2, y, 900, 52);
     if (showVerse) { x.fillStyle = "#0F3B2E"; x.font = "italic 500 32px 'Playfair Display', Georgia, serif"; y = wrap(x, `“${verse.text}”`, W / 2, y + 30, 880, 46); x.fillStyle = "#4f6f55"; x.font = "700 26px Inter, sans-serif"; x.fillText(verse.ref, W / 2, y + 6); y += 50; }
     if (prayer) { x.fillStyle = "#8a6a12"; x.font = "700 24px Inter, sans-serif"; x.fillText("A PRAYER FOR YOU", W / 2, y + 30); x.fillStyle = "#14231d"; x.font = "400 30px Inter, sans-serif"; const lines = prayer.split("\n").join(" "); y = wrap(x, lines, W / 2, y + 76, 880, 42) + 10; }
