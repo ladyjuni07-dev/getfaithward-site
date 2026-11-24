@@ -50,6 +50,9 @@ const design = (DESIGNS[occ.id] || []).includes(c.a) ? `-${c.a}` : "";
 $("art").src = `assets/cards/${occ.id}${design}.jpg`;
 $("title").textContent = occ.title;
 // Greeting (1.1): the sender can pick "Hi Maya,", write their own, or leave it off. Older cards say "Dear".
+// Sender-chosen closing ("" = just the name). Older links have none and keep "With love,".
+const closing = typeof c.cl === "string" ? oneLine(clean(c.cl, 40)) : "With love,";
+const signoff = closing ? `${closing} ${from}` : from;
 const greeting = typeof c.gr === "string" ? oneLine(clean(c.gr, 60)) : `Dear ${to},`;
 $("to").textContent = greeting;
 $("to").hidden = !greeting;
@@ -79,7 +82,7 @@ async function loadOwnVerse([, book, ch, a, e]) {
 }
 if (showVerse && own) loadOwnVerse(own).catch(() => {});
 else if (showVerse) showVerseText(verse.text, verse.ref);
-$("sig").textContent = `With love, ${from}`;
+$("sig").textContent = signoff;
 // Optional prayer. "fw" means Even Here's suggested words, unchanged; "own" means the sender wrote or edited it.
 const prayer = clean(c.pr, 1200);
 if (prayer) {
@@ -296,7 +299,7 @@ $("keep").addEventListener("click", async () => {
     x.fillStyle = "#14231d"; x.font = "400 36px Inter, sans-serif"; y = wrap(x, msg, W / 2, y, 900, 52);
     if (showVerse) { const vt = $("vtext").textContent || `“${verse.text}”`, vr = $("vref").textContent || verse.ref; x.fillStyle = "#0F3B2E"; x.font = "italic 500 32px 'Playfair Display', Georgia, serif"; y = wrap(x, vt, W / 2, y + 30, 880, 46); x.fillStyle = "#4f6f55"; x.font = "700 26px Inter, sans-serif"; y = wrap(x, vr, W / 2, y + 6, 880, 34) + 16; }
     if (prayer) { x.fillStyle = "#8a6a12"; x.font = "700 24px Inter, sans-serif"; x.fillText("A PRAYER FOR YOU", W / 2, y + 30); x.fillStyle = "#14231d"; x.font = "400 30px Inter, sans-serif"; y = wrap(x, prayer, W / 2, y + 76, 880, 42) + 10; }
-    x.fillStyle = "#0F3B2E"; x.font = "italic 600 44px 'Playfair Display', Georgia, serif"; y = wrap(x, `With love, ${from}`, W / 2, y + 60, 920, 56) - 116;
+    x.fillStyle = "#0F3B2E"; x.font = "italic 600 44px 'Playfair Display', Georgia, serif"; y = wrap(x, signoff, W / 2, y + 60, 920, 56) - 116;
     const FH = Math.min(H, Math.max(1350, y + 170));
     x.fillStyle = "#4d5c55"; x.font = "500 22px Inter, sans-serif"; x.fillText("Sent with Even Here", W / 2, FH - 40);
     const out = document.createElement("canvas"); out.width = W; out.height = FH; out.getContext("2d").drawImage(cv, 0, 0);
