@@ -14,7 +14,10 @@ function readCard() {
     return JSON.parse(json);
   } catch { return null; }
 }
-const clean = (s, n) => String(s ?? "").replace(/[<>]/g, "").slice(0, n).trim();
+// Remove hidden control characters but keep line breaks. Text is always shown with textContent
+// (or escaped), so symbols like "<3" stay as the sender typed them.
+const clean = (s, n) => String(s ?? "").replace(/\r\n?/g, "\n").replace(/[\u0000-\u0009\u000B-\u001F\u007F]/g, "").replace(/\n{3,}/g, "\n\n").slice(0, n).trim();
+const oneLine = (s) => s.replace(/\s*\n\s*/g, " ");
 
 const card = readCard();
 if (!card) {
@@ -28,14 +31,18 @@ const occ = OCCASIONS[c.o] || OCCASIONS.grief;
 // Which verse the sender picked (0-2). Old links have no index and use the first.
 const vi = Number.isInteger(c.vi) && occ.verses[c.vi] ? c.vi : 0;
 const verse = occ.verses[vi];
-const to = clean(c.to, 40) || "friend";
-const from = clean(c.from, 40) || "A friend";
+const to = oneLine(clean(c.to, 40)) || "friend";
+const from = oneLine(clean(c.from, 40)) || "A friend";
 const tone = c.tone === "gentle" ? "gentle" : "faith";
 const msg = clean(c.msg, 400) || occ[tone].replace("{to}", to);
 const showVerse = c.v === undefined ? tone === "faith" : !!c.v;
 
 const $ = (id) => document.getElementById(id);
-$("fromLine").innerHTML = `${from} sent you a card<small>Tap the seal to open it</small>`;
+{
+  const fl = $("fromLine"), small = document.createElement("small");
+  small.textContent = "Tap the seal to open it";
+  fl.replaceChildren(document.createTextNode(`${from} sent you a card`), small);
+}
 $("envTo").textContent = `For ${to}`;
 // Some cards have more than one design (added in 1.1). Unknown values fall back to the original art.
 const DESIGNS = { birthday: ["lamp", "lilies"] };
@@ -43,7 +50,7 @@ const design = (DESIGNS[occ.id] || []).includes(c.a) ? `-${c.a}` : "";
 $("art").src = `assets/cards/${occ.id}${design}.jpg`;
 $("title").textContent = occ.title;
 // Greeting (1.1): the sender can pick "Hi Maya,", write their own, or leave it off. Older cards say "Dear".
-const greeting = typeof c.gr === "string" ? clean(c.gr, 60) : `Dear ${to},`;
+const greeting = typeof c.gr === "string" ? oneLine(clean(c.gr, 60)) : `Dear ${to},`;
 $("to").textContent = greeting;
 $("to").hidden = !greeting;
 $("msg").textContent = msg;
@@ -248,20 +255,36 @@ $("rPrev").addEventListener("click", () => showDay(day - 1));
 $("rNext").addEventListener("click", () => showDay(day === days.length - 1 ? 0 : day + 1));
 
 // Keepsake: draw the card onto a picture the person can save or share.
+// Breaks text into lines that fit. Keeps the sender's line breaks, and splits a very long word
+// (like a name with no spaces) across lines instead of letting it run off the edge.
 function wrap(ctx, text, x, y, max, lh) {
-  const words = text.split(" "); let line = "";
-  for (const w of words) {
-    const t = line ? line + " " + w : w;
-    if (ctx.measureText(t).width > max && line) { ctx.fillText(line, x, y); y += lh; line = w; } else line = t;
+  const fits = (t) => ctx.measureText(t).width <= max;
+  for (const para of String(text).split("\n")) {
+    let line = "";
+    for (let w of para.split(/ +/)) {
+      while (!fits(w)) {
+        // Find the longest start of the word that fits on the rest of this line (or a new line).
+        const room = line ? line + " " : "";
+        let n = 0;
+        for (const ch of Array.from(w)) { if (!fits(room + Array.from(w).slice(0, n + 1).join(""))) break; n++; }
+        if (n === 0) { if (line) { ctx.fillText(line, x, y); y += lh; line = ""; continue; } n = 1; }
+        const chars = Array.from(w);
+        ctx.fillText(room + chars.slice(0, n).join(""), x, y); y += lh; line = ""; w = chars.slice(n).join("");
+      }
+      const t = line ? line + " " + w : w;
+      if (!fits(t) && line) { ctx.fillText(line, x, y); y += lh; line = w; } else line = t;
+    }
+    if (line) { ctx.fillText(line, x, y); y += lh; } else if (!para) y += lh * 0.6;
   }
-  if (line) { ctx.fillText(line, x, y); y += lh; }
   return y;
 }
 $("keep").addEventListener("click", async () => {
   const btn = $("keep"); btn.disabled = true; btn.textContent = "Making your keepsake…";
   try {
     await document.fonts.ready;
-    const W = 1080, H = 2600, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+    // Draw on a tall canvas, then crop to the real height, so long cards are never cut off.
+    // 1080 x 6000 stays well under iPhone Safari's canvas size limit.
+    const W = 1080, H = 6000, cv = document.createElement("canvas"); cv.width = W; cv.height = H;
     const x = cv.getContext("2d");
     x.fillStyle = "#FFFDF7"; x.fillRect(0, 0, W, H);
     x.fillStyle = "#F4EEDC"; x.fillRect(0, 0, W, 640);
@@ -269,16 +292,16 @@ $("keep").addEventListener("click", async () => {
     if (img.complete && img.naturalWidth) { const s = Math.min(1000 / img.naturalWidth, 600 / img.naturalHeight); const w = img.naturalWidth * s, h = img.naturalHeight * s; x.drawImage(img, (W - w) / 2, 20 + (600 - h) / 2, w, h); }
     x.textAlign = "center"; x.fillStyle = "#0F3B2E"; x.font = "700 64px 'Playfair Display', Georgia, serif";
     let y = wrap(x, occ.title, W / 2, 740, 920, 76);
-    x.fillStyle = "#8a6a12"; x.font = "600 34px Inter, sans-serif"; if (greeting) { x.fillText(greeting, W / 2, y + 10); y += 70; } else y += 20;
+    x.fillStyle = "#8a6a12"; x.font = "600 34px Inter, sans-serif"; if (greeting) { y = wrap(x, greeting, W / 2, y + 10, 920, 46) + 24; } else y += 20;
     x.fillStyle = "#14231d"; x.font = "400 36px Inter, sans-serif"; y = wrap(x, msg, W / 2, y, 900, 52);
-    if (showVerse) { x.fillStyle = "#0F3B2E"; x.font = "italic 500 32px 'Playfair Display', Georgia, serif"; y = wrap(x, `“${verse.text}”`, W / 2, y + 30, 880, 46); x.fillStyle = "#4f6f55"; x.font = "700 26px Inter, sans-serif"; x.fillText(verse.ref, W / 2, y + 6); y += 50; }
-    if (prayer) { x.fillStyle = "#8a6a12"; x.font = "700 24px Inter, sans-serif"; x.fillText("A PRAYER FOR YOU", W / 2, y + 30); x.fillStyle = "#14231d"; x.font = "400 30px Inter, sans-serif"; const lines = prayer.split("\n").join(" "); y = wrap(x, lines, W / 2, y + 76, 880, 42) + 10; }
-    x.fillStyle = "#0F3B2E"; x.font = "italic 600 44px 'Playfair Display', Georgia, serif"; x.fillText(`With love, ${from}`, W / 2, y + 60);
-    const FH = Math.max(1350, y + 170);
+    if (showVerse) { const vt = $("vtext").textContent || `“${verse.text}”`, vr = $("vref").textContent || verse.ref; x.fillStyle = "#0F3B2E"; x.font = "italic 500 32px 'Playfair Display', Georgia, serif"; y = wrap(x, vt, W / 2, y + 30, 880, 46); x.fillStyle = "#4f6f55"; x.font = "700 26px Inter, sans-serif"; y = wrap(x, vr, W / 2, y + 6, 880, 34) + 16; }
+    if (prayer) { x.fillStyle = "#8a6a12"; x.font = "700 24px Inter, sans-serif"; x.fillText("A PRAYER FOR YOU", W / 2, y + 30); x.fillStyle = "#14231d"; x.font = "400 30px Inter, sans-serif"; y = wrap(x, prayer, W / 2, y + 76, 880, 42) + 10; }
+    x.fillStyle = "#0F3B2E"; x.font = "italic 600 44px 'Playfair Display', Georgia, serif"; y = wrap(x, `With love, ${from}`, W / 2, y + 60, 920, 56) - 116;
+    const FH = Math.min(H, Math.max(1350, y + 170));
     x.fillStyle = "#4d5c55"; x.font = "500 22px Inter, sans-serif"; x.fillText("Sent with Even Here", W / 2, FH - 40);
     const out = document.createElement("canvas"); out.width = W; out.height = FH; out.getContext("2d").drawImage(cv, 0, 0);
     const blob = await new Promise((r) => out.toBlob(r, "image/png"));
-    const file = new File([blob], `card-from-${from.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}.png`, { type: "image/png" });
+    const file = new File([blob], `card-from-${from.replace(/[^a-z0-9]+/gi, "-").replace(/^-+|-+$/g, "").toLowerCase() || "a-friend"}.png`, { type: "image/png" });
     if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: occ.title }); }
     else { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = file.name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }
     btn.textContent = "Saved";

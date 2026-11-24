@@ -29,7 +29,8 @@ img { display: block; max-width: 100%; height: auto; }
 .card .inside { padding: 22px 24px 26px; text-align: center; }
 .card h1 { margin: 0; font: 700 1.9rem/1.12 var(--serif); color: var(--forest); }
 .card .to { margin: 12px 0 0; font: 600 15px var(--sans); color: var(--gold-ink); letter-spacing: .02em; }
-.card .msg { margin: 10px 0 0; font-size: 17px; line-height: 1.6; color: var(--ink); }
+.card .msg { margin: 10px 0 0; font-size: 17px; line-height: 1.6; color: var(--ink); white-space: pre-line; overflow-wrap: anywhere; }
+#prText { white-space: pre-line; overflow-wrap: anywhere; }
 .card .verse { margin: 18px 0 0; padding: 16px 16px 14px; border-radius: 12px; background: #eef2ea; border-left: 3px solid var(--sage); text-align: left; }
 .card .verse blockquote { margin: 0; font: italic 500 16px/1.55 var(--serif); color: var(--forest); }
 .card .verse figcaption { margin-top: 8px; font: 700 13px var(--sans); color: var(--sage); color: #4f6f55; }
